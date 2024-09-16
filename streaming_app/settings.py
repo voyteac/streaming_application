@@ -1,3 +1,4 @@
+import time
 from pathlib import Path
 import os
 
@@ -144,6 +145,11 @@ LOGGING = {
         #     'filename': os.path.join(BASE_DIR, 'django_debug.log'),
         #     'formatter': 'verbose',
         # },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
         'streaming_app_log_file_name': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
@@ -186,3 +192,31 @@ LOGGING = {
         },
     },
 }
+
+########################################## LOGGER SETTINGS ##########################################
+import subprocess
+
+def start_wsl_background():
+    try:
+        subprocess.Popen("wsl", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        print("WSL started in the background.")
+        wait_for_postgres()
+    except Exception as e:
+        print(f"Failed to start WSL: {e}")
+
+
+def wait_for_postgres():
+    while True:
+        try:
+            result = subprocess.run(["wsl", "pg_isready"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            if result.returncode == 0:
+                print("PostgreSQL is ready.")
+                break
+            else:
+                print("Waiting for PostgreSQL to start...")
+                time.sleep(2)  # Wait and retry
+        except Exception as e:
+            print(f"Error checking PostgreSQL status: {e}")
+            time.sleep(5)
+
+start_wsl_background()
