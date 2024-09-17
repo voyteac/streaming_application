@@ -6,6 +6,12 @@ import traceback
 logger = logging.getLogger('streaming_app')
 
 
+class MyException(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+
+
 def decompose_gpb_event(data):
     logger.debug(f'{decompose_gpb_event.__name__} -> Decomposing GPB event notification to JSON')
     logger.debug(f'{decompose_gpb_event.__name__} -> Data: {data}')
@@ -41,3 +47,17 @@ def decompose_gpb_event(data):
     except Exception as e:
         logger.error(f'{decompose_gpb_event.__name__} -> Decomposing error: {e}')
         logger.error(f'{decompose_gpb_event.__name__} -> {traceback.print_exc()}')
+
+
+def get_unique_client_id(data):
+    try:
+        logger.debug(f'{decompose_gpb_event.__name__} -> Decomposing unique_client_id')
+        gpb_event_notification = event_notification_pb2.EventNotification()
+        gpb_event_notification.ParseFromString(data)
+        unique_client_id = gpb_event_notification.unique_client_id
+    except MyException as my_exception:
+        logger.error(f'{decompose_gpb_event.__name__} -> Decomposing unique_client_id - FAILED:  {my_exception}')
+    else:
+        logger.debug(f'{decompose_gpb_event.__name__} -> Decomposing unique_client_id: Done {unique_client_id}')
+        return unique_client_id
+

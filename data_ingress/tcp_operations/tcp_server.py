@@ -65,18 +65,18 @@ def handle_tcp_connection(tcp_connection, tcp_to_kafka_data_queue_arg):
 
 
 def check_tcp_socket(host, port, timeout=1):
-    logger.info(f'{check_tcp_socket.__name__} -> Checking if TCP socket is opened.')
+    # logger.info(f'{check_tcp_socket.__name__} -> Checking if TCP socket is opened.')
     socket_to_check = create_tcp_socket()
     socket_to_check.settimeout(timeout)
     try:
         socket_to_check.connect((host, port))
-        logger.debug(f'{check_tcp_socket.__name__} -> Testing - Opened!')
-        logger.info(f'{check_tcp_socket.__name__} -> Checking if TCP socket is opened - Opened.')
+        # logger.debug(f'{check_tcp_socket.__name__} -> Testing - Opened!')
+        # logger.info(f'{check_tcp_socket.__name__} -> Checking if TCP socket is opened - Opened.')
         return True
     except (socket.timeout, socket.error) as err:
-        logger.debug(f'{check_tcp_socket.__name__} -> Testing - Closed! {err}')
-        logger.info(f'{check_tcp_socket.__name__} -> Checking if TCP socket is opened - Closed')
+        # logger.debug(f'{check_tcp_socket.__name__} -> Testing - Closed! {err}')
+        # logger.info(f'{check_tcp_socket.__name__} -> Checking if TCP socket is opened - Closed')
         return False
     finally:
         socket_to_check.close()
-        logger.debug(f'{check_tcp_socket.__name__} -> Testing - Closed!')
+        # logger.debug(f'{check_tcp_socket.__name__} -> Testing - Closed!')

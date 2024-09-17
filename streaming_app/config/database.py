@@ -1,0 +1,1 @@
+table_name = 'data_ingress_databaseloader'

@@ -41,7 +41,7 @@ def start_streaming(request):
          for internal_client_id in range(number_of_clients)]
 
     request.session['streaming_status'] = 'started'
-    return redirect('control-panel')
+    return redirect('data-ingress')
 
 
 def get_number_of_data_generators_from_gui(request):
@@ -116,7 +116,7 @@ def stop_streaming(request):
     else:
         logger.info(f'{stop_streaming.__name__} -> All threads stopped successfully.')
 
-    return redirect('control-panel')
+    return redirect('data-ingress')
 
 # def is_tcp_client_running(host, port, timeout_seconds=1):
 #     logger.info(f'{is_tcp_client_running.__name__} -> Checking whether TCP client is running.')

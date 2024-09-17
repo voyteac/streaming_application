@@ -1,6 +1,9 @@
 bootstrap_servers = 'localhost:9092'
 api_version = (0, 10, 1)
-topic_name = 'test'
+# topic_name = 'test'
+odd_client_id_topic_name = 'odd_client_id_topic'
+even_client_id_topic_name = 'even_client_id_topic'
+
 kafka_container_name = 'kafka'
 zookeeper_container_name = 'zookeeper'
 kafka_container_up_status = 'kafka: Up'

@@ -3,6 +3,7 @@ import random
 import numpy as np
 from faker import Faker
 import logging
+from datetime import datetime
 
 logger = logging.getLogger('streaming_app')
 
@@ -11,6 +12,12 @@ def get_timestamp():
     timestamp = time.time()
     # logger.debug(f'{get_timestamp.__name__} -> Timestamp: {timestamp}')
     return timestamp
+
+
+def get_formatted_timestamp():
+    timestamp = get_timestamp()
+    dt_object = datetime.fromtimestamp(timestamp)
+    return dt_object.strftime('%Y-%m-%d %H:%M:%S')
 
 
 def get_metric_value(min=0, max=1, precision=2):

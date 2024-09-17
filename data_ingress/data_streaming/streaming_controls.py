@@ -29,7 +29,7 @@ def start_data_collection(request):
                      f'{is_kafka_container_running}')
 
         request.session['tcp_server_status'] = 'stopped'
-    return redirect('control-panel')
+    return redirect('data-ingress')
 
 
 def stop_data_collection(request):
@@ -40,4 +40,4 @@ def stop_data_collection(request):
         streaming_thread.join()
     logger.info(f'{stop_data_collection.__name__} -> Data collection stopped')
     request.session['tcp_server_status'] = 'stopped'
-    return redirect('control-panel')
+    return redirect('data-ingress')

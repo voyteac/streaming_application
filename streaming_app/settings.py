@@ -187,7 +187,7 @@ LOGGING = {
         },
         'data_generation': {
             'handlers': ['data_generation_log_file_name'],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': False,
         },
     },

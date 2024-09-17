@@ -14,11 +14,11 @@ logger = logging.getLogger('streaming_app')
 def initialize_kafka_consumer():
     logger.debug(f'{initialize_kafka_consumer.__name__} -> Initializing Kafka Consumer')
     try:
-        consumer = KafkaConsumer(kafka_config.topic_name,
-                                 bootstrap_servers=kafka_config.bootstrap_servers,
+        consumer = KafkaConsumer(bootstrap_servers=kafka_config.bootstrap_servers,
                                  value_deserializer=lambda m: json.loads(m.decode('utf-8')),
                                  api_version=(0, 10)
                                  )
+        consumer.subscribe([kafka_config.even_client_id_topic_name, kafka_config.odd_client_id_topic_name])
         logger.debug(f'{initialize_kafka_consumer.__name__} -> Initializing Kafka Consumer - Done!')
         return consumer
     except Exception as e:

@@ -5,12 +5,12 @@
 <style>
     .data-ingress-container{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
     }
 </style>
 
-<h1>Control panel</h1>
+<h1>Data Ingress - control panel</h1>
 <hr>
 
 <div class="data-ingress-container">
@@ -24,6 +24,10 @@
         <h2>Control Kafka Container</h2>
     </div>
     <div>
+        <h2>PostgreSQL handling</h2>
+    </div>
+
+    <div>
         {% include 'data_producers.html' with streaming_status=streaming_status %}
     </div>
     <div>
@@ -31,6 +35,9 @@
     </div>
     <div>
         {% include 'kafka_server.html' with kafka_container_status=kafka_container_status %}
+    </div>
+    <div>
+        {% include 'postgresql.html' %}
     </div>
 </div>
 

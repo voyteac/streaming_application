@@ -11,28 +11,28 @@ logger = logging.getLogger('streaming_app')
 
 
 def kafka_container_check():
-    logger.info(f'{kafka_container_check.__name__} -> Checking kafka container status.')
+    # logger.info(f'{kafka_container_check.__name__} -> Checking kafka container status.')
     running_containers_status = get_running_docker_container_status()
     is_kafka_container_running = check_kafka_environment_status(running_containers_status)
     if is_kafka_container_running:
-        logger.info(f'{kafka_container_check.__name__} -> Checking kafka container status - Running!')
+        # logger.info(f'{kafka_container_check.__name__} -> Checking kafka container status - Running!')
         return True
     else:
-        logger.info(f'{kafka_container_check.__name__} -> Checking kafka container status  - Not Running!')
+        # logger.info(f'{kafka_container_check.__name__} -> Checking kafka container status  - Not Running!')
         return False
 
 
 def get_running_docker_container_status():
-    logger.info(f'{get_running_docker_container_status.__name__} -> Get running Kafka container status')
+    # logger.info(f'{get_running_docker_container_status.__name__} -> Get running Kafka container status')
 
     result = execute_command_on_wsl(kafka_config.wsl_command_to_get_container_status)
     containers_lines = result.stdout.strip().split('\n')
 
-    logger.debug(f'{get_running_docker_container_status.__name__} -> Containers_lines: {containers_lines}')
+    # logger.debug(f'{get_running_docker_container_status.__name__} -> Containers_lines: {containers_lines}')
 
     containers_status = conclude_container_status_from_output(containers_lines)
 
-    logger.info(f'{get_running_docker_container_status.__name__} -> Container status is : {containers_status}')
+    # logger.info(f'{get_running_docker_container_status.__name__} -> Container status is : {containers_status}')
     return containers_status
 
 
@@ -81,7 +81,7 @@ def start_kafka_container(request):
             execute_command_on_wsl(command_kafka)
             request.session['kafka_container_status'] = 'started'
             logger.info(f'{start_kafka_container.__name__} -> Starting Kafka - Started!')
-            return redirect('control-panel')
+            return redirect('data-ingress')
         else:
             logger.error(f'{start_kafka_container.__name__} -> Kafka not started - problems with Zookeeper')
     except subprocess.CalledProcessError as e:
@@ -123,4 +123,4 @@ def stop_kafka_container(request):
         logger.info(f'{stop_kafka_container.__name__} -> Stopping Kafka Container - Stopped')
     else:
         logger.error(f'{stop_kafka_container.__name__} -> Stopping Kafka Container - Not stopped - command output: {cmd_result}')
-    return redirect('control-panel')
+    return redirect('data-ingress')
