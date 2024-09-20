@@ -1,18 +1,44 @@
-from django.db import IntegrityError
-
-import logging
-import traceback
+from kafka.consumer.fetcher import ConsumerRecord
 
 from data_ingress.models import DataBaseLoader
+from data_ingress.logging_.to_log_file import log_debug, log_info, log_error, log_error_traceback
 
-logger = logging.getLogger('streaming_app')
+
+class KafkaMessageToDatabaseMessageConversionFailed(Exception):
+    def __init__(self, exception_message: str, function_name: str, kafka_msg: ConsumerRecord):
+        super().__init__(exception_message)
+        self.exception_message: str = exception_message
+        self.function_name: str = function_name
+        self.kafka_msg: ConsumerRecord = kafka_msg
+        log_error(self.function_name,f'Converting Kafka message to database message failed {self.exception_message}')
+        log_error(self.function_name, f'Kafka Topic:: {self.kafka_msg.topic}')
+        log_error(self.function_name, f'Kafka Message: {self.kafka_msg.value}')
+
+class SavingToDatabaseFailed(Exception):
+    def __init__(self,  exception_message: str, function_name: str):
+        super().__init__(exception_message)
+        self.exception_message: str = exception_message
+        self.function_name: str = function_name
+        log_error(self.function_name,f'Saving to database failed!')
 
 
-def load_message_to_database(kafka_msg):
-    logger.info(f'{load_message_to_database.__name__} -> Loading message to database')
+def save_kafka_message_to_database(kafka_msg: ConsumerRecord) -> None:
+    log_info(save_kafka_message_to_database.__name__, 'Loading message to database')
+
+    database_message: DataBaseLoader = get_database_message_from_kafka_message(kafka_msg)
     try:
-        unique_client_id = str(kafka_msg.value.get('unique_client_id')) + "_" + str(
-            kafka_msg.value.get('message_number'))
+        database_message.save()
+    except Exception as e:
+        log_error_traceback(save_kafka_message_to_database.__name__)
+        raise SavingToDatabaseFailed(str(e), save_kafka_message_to_database.__name__) from e
+    else:
+        log_info(save_kafka_message_to_database.__name__, 'Loading message to database - Done')
+
+
+def get_database_message_from_kafka_message(kafka_msg: ConsumerRecord) -> DataBaseLoader:
+    log_debug(get_database_message_from_kafka_message.__name__,f'Kafka message to database message conversion ...')
+    try:
+        unique_client_id = get_unique_client_id(kafka_msg)
         kafka_unique_client_id = kafka_msg.value.get('unique_client_id')
         kafka_timestamp = kafka_msg.value.get('timestamp')
         kafka_message_number = kafka_msg.value.get('message_number')
@@ -30,7 +56,7 @@ def load_message_to_database(kafka_msg):
         kafka_metric_10 = kafka_msg.value.get('metric_10')
         kafka_metric_11 = kafka_msg.value.get('metric_11')
 
-        database_message = DataBaseLoader(
+        database_message: DataBaseLoader = DataBaseLoader(
             internal_unique_client_id=unique_client_id,
             unique_client_id=kafka_unique_client_id,
             timestamp=kafka_timestamp,
@@ -49,18 +75,16 @@ def load_message_to_database(kafka_msg):
             metric_10=kafka_metric_10,
             metric_11=kafka_metric_11
         )
-        logger.info(f'{load_message_to_database.__name__} -> Kafka message {kafka_msg}')
-        try:
-            database_message.save()
-            logger.info(
-                f'{load_message_to_database.__name__} -> For unique client id: {kafka_unique_client_id}, saved message with number: {kafka_message_number}.')
-        except IntegrityError as ie:
-            logger.error(
-                f'{load_message_to_database.__name__} -> For unique client id: {kafka_unique_client_id} message with number: {kafka_message_number} already exists in the database.')
-            logger.info(f'{load_message_to_database.__name__} -> Integrity Error: {ie}')
-            logger.error(f'{load_message_to_database.__name__} -> {traceback.format_exc()}')
     except Exception as e:
-        logger.error(f'{load_message_to_database.__name__} -> Loading to db failed with error {e}')
-        logger.error(f'{load_message_to_database.__name__} -> Kafka Topic:: {kafka_msg.topic}')
-        logger.error(f'{load_message_to_database.__name__} -> Kafka Message: {kafka_msg.value}')
-        logger.error(f'{load_message_to_database.__name__} -> {traceback.format_exc()}')
+        log_error_traceback(get_database_message_from_kafka_message.__name__)
+        raise KafkaMessageToDatabaseMessageConversionFailed(str(e), get_database_message_from_kafka_message.__name__,
+                                                            kafka_msg) from e
+    else:
+        log_debug(get_database_message_from_kafka_message.__name__, f'Kafka message to database message conversion - Done! Database message\n{kafka_msg}')
+        return database_message
+
+
+def get_unique_client_id(kafka_msg: ConsumerRecord) -> str:
+    unique_client_id: str = str(kafka_msg.value.get('unique_client_id'))
+    message_number: str = str(kafka_msg.value.get('message_number'))
+    return unique_client_id + "_" + message_number

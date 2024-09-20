@@ -1,17 +1,23 @@
-import logging
+from subprocess import CompletedProcess
 import subprocess
-import traceback
+from typing import Optional
 
-logger = logging.getLogger('streaming_app')
+from data_ingress.logging_.to_log_file import log_debug
 
 
-def execute_command_on_wsl(command):
-    logger.debug(f'{execute_command_on_wsl.__name__} -> Command to be executed: {command}')
+
+class WslCommandExecutionFailed(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+
+
+def execute_command_on_wsl(command: str) -> Optional[CompletedProcess]:
+    log_debug(execute_command_on_wsl.__name__, f'Command to be executed: {command}')
     try:
         result = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
-        logger.debug(f'{execute_command_on_wsl.__name__} -> Results of the command execution: {result}')
+    except subprocess.CalledProcessError as cmd_failed:
+        raise WslCommandExecutionFailed(f'Error executing WSL command: {command} with error:\n{cmd_failed}')
+    else:
+        log_debug(execute_command_on_wsl.__name__, f'Results of the command execution: {result}')
         return result
-    except subprocess.CalledProcessError as e:
-        logger.error(f'{execute_command_on_wsl.__name__} -> Error executing WSL command: {e.stderr}')
-        logger.error(f'{execute_command_on_wsl.__name__} -> {traceback.format_exc()}')
-        return []

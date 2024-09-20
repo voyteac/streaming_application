@@ -2,45 +2,42 @@ import time
 import random
 import numpy as np
 from faker import Faker
-import logging
 from datetime import datetime
+from typing import List
 
-logger = logging.getLogger('streaming_app')
+from data_ingress.logging_.to_log_file import log_debug
 
-
-def get_timestamp():
+def get_timestamp() -> float:
     timestamp = time.time()
-    # logger.debug(f'{get_timestamp.__name__} -> Timestamp: {timestamp}')
     return timestamp
 
 
-def get_formatted_timestamp():
-    timestamp = get_timestamp()
-    dt_object = datetime.fromtimestamp(timestamp)
-    return dt_object.strftime('%Y-%m-%d %H:%M:%S')
+def get_formatted_timestamp() -> str:
+    timestamp: float = get_timestamp()
+    current_time: str = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+    return current_time
 
 
-def get_metric_value(min=0, max=1, precision=2):
-    value = np.random.uniform(min, max)
-    scale = 10 ** precision
-    rounded_value = np.ceil(value * scale) / scale
-    # logger.debug(f'{get_metric_value.__name__} -> rounded_value: {rounded_value}')
+def get_metric_value(minimum: int =0, maximum: int =1, precision: int=2) -> np.float64:
+    value: float = np.random.uniform(minimum, maximum)
+    scale: int = 10 ** precision
+    rounded_value: np.float64 = np.ceil(value * scale) / scale
     return rounded_value
 
 
-def get_client_name_id(number_of_clients):
-    faker = Faker()
-    name_list = []
-    while len(name_list) < number_of_clients:
-        city = faker.city()
+def get_client_name_id(number_of_clients: int) -> List[str]:
+    faker: Faker = Faker()
+    name_list: List[str] = []
+    while len(name_list) < number_of_clients: ## infinite loop?
+        city: str = faker.city()
         if ' ' not in city:
             name_list.append(city)
-    # logger.debug(f'{get_client_name_id.__name__} -> name_list: {name_list}')
+    log_debug(get_client_name_id.__name__, 'client_name_list: {get_client_name_id}')
     return name_list
 
 
-def get_unique_client_id_list(number_of_clients):
+def get_unique_client_id_list(number_of_clients) -> List[int]:
     unique_client_id_list = random.sample(range(number_of_clients), number_of_clients)
-    # unique_client_id_list = unique_client_id_list = np.random.permutation(number_of_clients)
-    # logger.debug(f'{get_unique_client_id_list.__name__} -> unique_client_id_list: {unique_client_id_list}')
+    log_debug(get_unique_client_id_list.__name__, 'unique_event_id_list: {unique_client_id_list}')
+    log_debug(get_unique_client_id_list.__name__, 'type of unique_event_id_list: {type(unique_client_id_list)}')
     return unique_client_id_list

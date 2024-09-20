@@ -1,49 +1,83 @@
 from kafka import KafkaProducer
-import logging
-import traceback
+from kafka.errors import KafkaError
+from kafka.errors import KafkaTimeoutError
+from kafka.errors import NoBrokersAvailable
+from typing import Optional
+from typing import Tuple
+import queue
 
 from streaming_app.config import kafka_config
 from data_ingress.google_protobuf.decompose import decompose_gpb_event, get_unique_client_id
+from data_ingress.logging_.to_log_file import log_debug, log_info, log_error, log_error_traceback
 
-logger = logging.getLogger('streaming_app')
+api_version: Tuple[int, int, int] = kafka_config.producer_api_version
+bootstrap_servers: str = kafka_config.bootstrap_servers
+even_client_id_topic_name: str = kafka_config.even_client_id_topic_name
+odd_client_id_topic_name: str = kafka_config.odd_client_id_topic_name
 
 
-def initialize_kafka_producer():
-    logger.debug(f'{initialize_kafka_producer.__name__} -> Initializing Kafka Producer')
+class InitializeKafkaProducerFailed(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+        log_error(self.__class__.__name__, f'Initializing Kafka Producer - Failed: {self.message}')
+
+
+def initialize_kafka_producer() -> Optional[KafkaProducer]:
+    log_debug(initialize_kafka_producer.__name__, 'Initializing Kafka Producer')
     try:
-        producer = KafkaProducer(
-            bootstrap_servers=kafka_config.bootstrap_servers,
-            api_version=kafka_config.api_version
-        )
-        logger.debug(f'{initialize_kafka_producer.__name__} -> Initializing Kafka Producer - Done')
-        return producer
+        producer: KafkaProducer = KafkaProducer(bootstrap_servers=bootstrap_servers, api_version=api_version)
+    except NoBrokersAvailable as e:
+        log_error(initialize_kafka_producer.__name__, 'No brokers available: {}'.format(e))
+        log_error_traceback(initialize_kafka_producer.__name__)
+        raise
+    except KafkaTimeoutError as e:
+        log_error(initialize_kafka_producer.__name__, 'Kafka timeout error: {}'.format(e))
+        log_error_traceback(initialize_kafka_producer.__name__)
+        raise
+    except KafkaError as e:
+        log_error(initialize_kafka_producer.__name__, 'General Kafka error: {}'.format(e))
+        log_error_traceback(initialize_kafka_producer.__name__)
+        raise
     except Exception as e:
-        logger.error(f'{initialize_kafka_producer.__name__} -> Error initializing Kafka producer: {e}')
-        logger.error(f'{initialize_kafka_producer.__name__} -> {traceback.format_exc()}')
-        return None
+        log_error(initialize_kafka_producer.__name__, 'An unexpected error occurred: {}'.format(e))
+        log_error_traceback(initialize_kafka_producer.__name__)
+        raise InitializeKafkaProducerFailed(str(e)) from e
+    else:
+        log_debug(initialize_kafka_producer.__name__, 'Initializing Kafka Producer - Done')
+        return producer
 
 
-def load_data_to_kafka(kafka_producer, data_queue):
-    logger.info(f'{load_data_to_kafka.__name__} -> Loading data to kafka')
-    data = data_queue.get()
-    logger.debug(f'{load_data_to_kafka.__name__} -> Data: {data}')
-    gpb_message_json = decompose_gpb_event(data)
-
+def load_data_to_kafka(kafka_producer: KafkaProducer, data_queue: queue.Queue):
+    log_info(load_data_to_kafka.__name__, 'Loading data to kafka')
+    data: bytes = get_data_from_queue(data_queue)
+    gpb_message_json: str = decompose_gpb_event(data)
     kafka_topic = determine_topic_based_on_data(data)
-
-    logger.debug(f'{load_data_to_kafka.__name__} -> Topic: {kafka_topic}')
+    log_debug(load_data_to_kafka.__name__, 'Topic: {kafka_topic}')
     try:
         kafka_producer.send(kafka_topic, gpb_message_json.encode('utf-8'))
         kafka_producer.flush()
-        logger.info(f'{load_data_to_kafka.__name__} -> Loading data to kafka - Done!')
+        log_info(load_data_to_kafka.__name__, 'Loading data to kafka - Done!')
     except Exception as e:
-        logger.error(f'{initialize_kafka_producer.__name__} -> Failed to send message to Kafka: {e}')
-        logger.error(f'{load_data_to_kafka.__name__} -> {traceback.format_exc()}')
+        log_error(initialize_kafka_producer.__name__, f'Failed to send message to Kafka: {e}')
+        log_error_traceback(initialize_kafka_producer.__name__)
 
-def determine_topic_based_on_data(data):
-    unique_client_id = get_unique_client_id(data)
+
+def determine_topic_based_on_data(data: bytes) -> str:
+    log_debug(determine_topic_based_on_data.__name__, 'Determining the Kafka topic')
+    unique_client_id: int = get_unique_client_id(data)
     if unique_client_id % 2 == 0:
-        return kafka_config.even_client_id_topic_name
+        log_debug(determine_topic_based_on_data.__name__,
+                  f'Determining the Kafka topic - Done: {even_client_id_topic_name}')
+        return even_client_id_topic_name
     else:
-        return kafka_config.odd_client_id_topic_name
+        log_debug(determine_topic_based_on_data.__name__,
+                  f'Determining the Kafka topic - Done: {odd_client_id_topic_name}')
+        return odd_client_id_topic_name
 
+
+def get_data_from_queue(data_queue: queue.Queue) -> bytes:
+    log_debug(get_data_from_queue.__name__, 'Getting data from queue')
+    data: bytes = data_queue.get()
+    log_debug(load_data_to_kafka.__name__, f'Getting data from queue - Got it - Data: {data}')
+    return data

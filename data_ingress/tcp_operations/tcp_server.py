@@ -1,82 +1,115 @@
 import socket
 import queue
-import logging
-import traceback
+import threading
+from kafka import KafkaProducer
+from kafka import KafkaConsumer
 
 from streaming_app.config import tcp_config
-from data_ingress.tcp_operations.tcp_helper import create_tcp_socket, close_tcp_socket, accept_tcp_connection
+from data_ingress.tcp_operations.tcp_helper import create_tcp_socket, close_tcp_socket, accept_tcp_connection, receive_data_via_tcp, check_tcp_socket
 from data_ingress.kafka.kafka_producer import initialize_kafka_producer, load_data_to_kafka
 from data_ingress.kafka.kafka_consumer import start_consuming
 from data_ingress.kafka.kafka_consumer import initialize_kafka_consumer
 from data_ingress.data_streaming.streaming_controls_helper import start_thread
+from data_ingress.logging_.to_log_file import log_debug, log_info, log_error, log_error_traceback
 
-logger = logging.getLogger('streaming_app')
-tcp_to_kafka_data_queue = queue.Queue()
+tcp_to_kafka_data_queue: queue.Queue = queue.Queue()
+client_host: str = tcp_config.client_host
+port: int = tcp_config.port
+received_data_buffer: int = tcp_config.received_data_buffer
 
 
-def start_data_flow(stop_streaming_flag):
-    logger.info(
-        f'{start_data_flow.__name__} -> Opening TCP socket for host: {tcp_config.client_host} and port: {tcp_config.port}')
+class DataFlowFromTcpServerToKafkaFailed(Exception):
+    def __init__(self, exception_message: str, function_name: str):
+        super().__init__(exception_message)
+        self.exception_message: str = exception_message
+        self.function_name: str = function_name
+        log_error(self.function_name,
+                  f'Starting a data flow from TCP server to Kafka - Failed: {self.exception_message}')
 
-    kafka_producer = initialize_kafka_producer()
-    kafka_consumer = initialize_kafka_consumer()
+
+class StreamingToKafkaFailed(Exception):
+    def __init__(self, exception_message: str, function_name: str):
+        super().__init__(exception_message)
+        self.exception_message: str = exception_message
+        self.function_name: str = function_name
+        log_error(self.function_name, f'Starting streaming to Kafka - Failed: {self.exception_message}')
+
+
+class TcpConnectionHandlingFailed(Exception):
+    def __init__(self, exception_message: str, function_name: str):
+        super().__init__(exception_message)
+        self.exception_message: str = exception_message
+        self.function_name: str = function_name
+        log_error(self.function_name, f'Error handling client connection: {self.exception_message}')
+
+
+class PutToKafkaFailed(Exception):
+    def __init__(self, exception_message: str, function_name: str):
+        super().__init__(exception_message)
+        self.exception_message: str = exception_message
+        self.function_name: str = function_name
+        log_error(self.function_name, f'Put data to kafka queue thread - Failed: {self.exception_message}')
+
+
+def start_data_flow(stop_streaming_flag: threading.Event) -> None:
+    log_info(start_data_flow.__name__, f'Starting a data flow from TCP server to Kafka')
+
+    kafka_producer: KafkaProducer = initialize_kafka_producer()
+    kafka_consumer: KafkaConsumer = initialize_kafka_consumer()
+    tcp_socket: socket.socket = create_tcp_socket()
 
     try:
-        tcp_socket = create_tcp_socket()
-        tcp_socket.bind((tcp_config.client_host, tcp_config.port))
+        tcp_socket.bind((client_host, port))
         tcp_socket.listen()
         tcp_socket.settimeout(1.0)
         while not stop_streaming_flag.is_set():
             start_streaming_to_kafka(kafka_consumer, kafka_producer, tcp_socket)
+    except Exception as e:
+        log_error_traceback(start_data_flow.__name__)
+        raise DataFlowFromTcpServerToKafkaFailed(str(e), start_data_flow.__name__) from e
     finally:
         close_tcp_socket(tcp_socket)
 
 
-def start_streaming_to_kafka(kafka_consumer, kafka_producer, tcp_socket):
+def start_streaming_to_kafka(kafka_consumer: KafkaConsumer, kafka_producer: KafkaProducer,
+                             tcp_socket: socket.socket) -> None:
+    log_info(start_streaming_to_kafka.__name__, 'Starting streaming to Kafka')
     start_thread(start_consuming, (kafka_consumer,), 'kafka consumer')
     start_thread(load_data_to_kafka, (kafka_producer, tcp_to_kafka_data_queue), 'kafka producer')
     try:
-        tcp_connection = accept_tcp_connection(tcp_socket)
+        tcp_connection: socket.socket = accept_tcp_connection(tcp_socket)
         start_thread(handle_tcp_connection, (tcp_connection, tcp_to_kafka_data_queue), 'TCP connection')
     except socket.timeout:
         pass
     except Exception as e:
-        logger.error(f'{start_data_flow.__name__} -> Socket error: {e}')
-        logger.error(f'{start_data_flow.__name__} -> {traceback.format_exc()}')
-        return
+        log_error_traceback(start_streaming_to_kafka.__name__)
+        raise StreamingToKafkaFailed(str(e), start_streaming_to_kafka.__name__) from e
+        # return
 
 
-def handle_tcp_connection(tcp_connection, tcp_to_kafka_data_queue_arg):
-    logger.info(f'{handle_tcp_connection.__name__} -> Handling tcp connection')
-    received_data_buffer = tcp_config.received_data_buffer
+def handle_tcp_connection(tcp_connection: socket.socket, tcp_to_kafka_data_queue_arg: queue.Queue) -> None:
+    log_info(handle_tcp_connection.__name__, 'Handling tcp connection...')
     with tcp_connection:
         try:
             while True:
-                received_data = tcp_connection.recv(received_data_buffer)
-                logger.debug(f'{handle_tcp_connection.__name__} -> received_data: {received_data}')
+                received_data: bytes = receive_data_via_tcp(tcp_connection, received_data_buffer)
                 if not received_data:
                     break
-                logger.debug(
-                    f'{handle_tcp_connection.__name__} -> Put data to kafka thread queue: {received_data_buffer}')
-                tcp_to_kafka_data_queue_arg.put(received_data)
+                send_data_to_kafka(received_data, tcp_to_kafka_data_queue_arg)
         except Exception as e:
-            logger.error(f'{handle_tcp_connection.__name__} -> Error handling client connection: {e}')
-            logger.error(f'{handle_tcp_connection.__name__} -> {traceback.format_exc()}')
+            log_error_traceback(handle_tcp_connection.__name__)
+            raise TcpConnectionHandlingFailed(str(e), handle_tcp_connection.__name__)
 
 
-def check_tcp_socket(host, port, timeout=1):
-    # logger.info(f'{check_tcp_socket.__name__} -> Checking if TCP socket is opened.')
-    socket_to_check = create_tcp_socket()
-    socket_to_check.settimeout(timeout)
+def send_data_to_kafka(data: bytes, tcp_to_kafka_data_queue_arg: queue.Queue) -> None:
+    log_debug(send_data_to_kafka.__name__, f'Put data to kafka queue thread')
     try:
-        socket_to_check.connect((host, port))
-        # logger.debug(f'{check_tcp_socket.__name__} -> Testing - Opened!')
-        # logger.info(f'{check_tcp_socket.__name__} -> Checking if TCP socket is opened - Opened.')
-        return True
-    except (socket.timeout, socket.error) as err:
-        # logger.debug(f'{check_tcp_socket.__name__} -> Testing - Closed! {err}')
-        # logger.info(f'{check_tcp_socket.__name__} -> Checking if TCP socket is opened - Closed')
-        return False
-    finally:
-        socket_to_check.close()
-        # logger.debug(f'{check_tcp_socket.__name__} -> Testing - Closed!')
+        tcp_to_kafka_data_queue_arg.put(data)
+    except Exception as e:
+        log_error_traceback(send_data_to_kafka.__name__)
+        raise PutToKafkaFailed(str(e), send_data_to_kafka.__name__)
+    else:
+        log_debug(handle_tcp_connection.__name__, f'Put data to kafka queue thread - Done!')
+
+
+

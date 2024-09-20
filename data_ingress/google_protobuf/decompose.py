@@ -1,25 +1,27 @@
-from streaming_app.protobuf_schema import event_notification_pb2
+from streaming_app.protobuf_schema import event_notification_pb2 as event_scheme
 import json
-import logging
-import traceback
+from typing import Optional
 
-logger = logging.getLogger('streaming_app')
+from data_ingress.logging_.to_log_file import log_debug, log_error, log_error_traceback
 
 
-class MyException(Exception):
+class ErrorDuringGpbEventDecompose(Exception):
     def __init__(self, message):
         super().__init__(message)
         self.message = message
+        log_error(self.__class__.__name__, f'Decomposing GPB event notification to JSON - Failed: {self.message}')
+
+class ErrorDuringDecomposingUniqueClientId(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+        log_error(self.__class__.__name__, f'Decomposing unique_client_id - Failed')
 
 
-def decompose_gpb_event(data):
-    logger.debug(f'{decompose_gpb_event.__name__} -> Decomposing GPB event notification to JSON')
-    logger.debug(f'{decompose_gpb_event.__name__} -> Data: {data}')
-
+def decompose_gpb_event(data: bytes) -> str:
+    log_debug(decompose_gpb_event.__name__,f'Decomposing GPB event notification to JSON, data: {data}')
     try:
-        gpb_event_notification = event_notification_pb2.EventNotification()
-        gpb_event_notification.ParseFromString(data)
-
+        gpb_event_notification: event_scheme.EventNotification = parse_gpb_event_notification_to_string(data)
         decomposed_gpb_event_notification = {
             'unique_client_id': gpb_event_notification.unique_client_id,
             'timestamp': gpb_event_notification.timestamp,
@@ -38,26 +40,37 @@ def decompose_gpb_event(data):
             'metric_10': gpb_event_notification.metric_10,
             'metric_11': gpb_event_notification.metric_11
         }
-
         decomposed_gpb_event_notification_json = json.dumps(decomposed_gpb_event_notification)
-        logger.debug(
-            f'{decompose_gpb_event.__name__} -> decomposed_gpb_event_notification_json: {decomposed_gpb_event_notification_json}')
-
-        return decomposed_gpb_event_notification_json
     except Exception as e:
-        logger.error(f'{decompose_gpb_event.__name__} -> Decomposing error: {e}')
-        logger.error(f'{decompose_gpb_event.__name__} -> {traceback.print_exc()}')
-
-
-def get_unique_client_id(data):
-    try:
-        logger.debug(f'{decompose_gpb_event.__name__} -> Decomposing unique_client_id')
-        gpb_event_notification = event_notification_pb2.EventNotification()
-        gpb_event_notification.ParseFromString(data)
-        unique_client_id = gpb_event_notification.unique_client_id
-    except MyException as my_exception:
-        logger.error(f'{decompose_gpb_event.__name__} -> Decomposing unique_client_id - FAILED:  {my_exception}')
+        log_error_traceback(decompose_gpb_event.__name__)
+        raise ErrorDuringGpbEventDecompose(str(e)) from e
     else:
-        logger.debug(f'{decompose_gpb_event.__name__} -> Decomposing unique_client_id: Done {unique_client_id}')
+        log_debug(decompose_gpb_event.__name__, f'decomposed_gpb_event_notification_json: {decomposed_gpb_event_notification_json}')
+        return decomposed_gpb_event_notification_json
+
+
+
+def get_unique_client_id(data) -> Optional[int]:
+    try:
+        log_debug(decompose_gpb_event.__name__, 'Decomposing unique_client_id')
+        gpb_event_notification: event_scheme.EventNotification = parse_gpb_event_notification_to_string(data)
+        unique_client_id: int = gpb_event_notification.unique_client_id
+    except Exception as exception:
+        log_error_traceback(get_unique_client_id.__name__)
+        raise ErrorDuringDecomposingUniqueClientId(str(exception)) from exception
+    else:
+        log_debug(decompose_gpb_event.__name__, f'Decomposing unique_client_id - Done! Value: {unique_client_id}')
         return unique_client_id
 
+
+def parse_gpb_event_notification_to_string(data: event_scheme.EventNotification) -> event_scheme.EventNotification:
+    log_debug(decompose_gpb_event.__name__, 'Parsing GPB event notification')
+    try:
+        gpb_event_notification: event_scheme.EventNotification = event_scheme.EventNotification()
+        gpb_event_notification.ParseFromString(data)
+    except Exception as exception:
+        log_error_traceback(parse_gpb_event_notification_to_string.__name__)
+        raise ErrorDuringGpbEventDecompose(str(exception)) from exception
+    else:
+        log_debug(decompose_gpb_event.__name__, 'Parsing GPB event notification - Done!')
+        return gpb_event_notification

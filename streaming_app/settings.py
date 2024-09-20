@@ -220,3 +220,10 @@ def wait_for_postgres():
             time.sleep(5)
 
 start_wsl_background()
+
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:9200'
+    },
+}
