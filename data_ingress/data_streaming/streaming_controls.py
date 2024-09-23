@@ -17,6 +17,9 @@ def start_data_collection(request: HttpRequest) -> HttpResponse:
     global streaming_thread, stop_streaming_flag
     stop_streaming_flag.clear()
     is_kafka_container_running: bool = kafka_container_check()
+
+    print(f'streaming_thread: {streaming_thread}')
+    # print(f'streaming_thread.is_alive(): {streaming_thread.is_alive()}')
     if is_kafka_container_running or not streaming_thread or not streaming_thread.is_alive():
         streaming_thread = start_thread(start_data_flow, (stop_streaming_flag,), 'streaming')
         log_info(start_data_collection.__name__, 'Data collection started!')

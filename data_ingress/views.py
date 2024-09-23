@@ -5,7 +5,7 @@ from typing import Dict
 
 from streaming_app.config import tcp_config
 from data_ingress.tcp_operations.tcp_server import check_tcp_socket
-from data_ingress.tcp_operations.data_generator import get_formatted_timestamp
+from data_ingress.data_generator.time_data import get_formatted_timestamp
 from django.shortcuts import render
 from data_ingress.kafka.kafka_container_control import kafka_container_check
 from data_ingress.database.postgresql_operations import clear_table

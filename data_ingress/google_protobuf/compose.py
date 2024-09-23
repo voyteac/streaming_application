@@ -1,7 +1,8 @@
 from typing import List
 
 from streaming_app.protobuf_schema import event_notification_pb2 as event_scheme
-from data_ingress.tcp_operations.data_generator import get_metric_value, get_timestamp
+from data_ingress.data_generator.random_data import get_metric_value
+from data_ingress.data_generator.time_data import get_timestamp
 from data_ingress.logging_.to_log_file import log_debug, log_error
 
 class ErrorDuringGpbEventCompose(Exception):

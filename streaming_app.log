@@ -1,0 +1,27 @@
+INFO 2024-09-23 21:00:26,486 to_log_file data_ingress -> START! / REFRESH!
+DEBUG 2024-09-23 21:00:26,488 to_log_file data_ingress -> streaming_status: started
+DEBUG 2024-09-23 21:00:26,489 to_log_file data_ingress -> context: {'streaming_message': 'Streaming is ongoing!', 'streaming_status': 'started', 'kafka_message': 'Kafka container is running!', 'kafka_container_status': 'started', 'tcp_server_message': 'Data Collection is started!', 'tcp_server_status': 'started', 'button_clicked': False, 'click_time': None}
+INFO 2024-09-23 21:00:26,583 to_log_file data_ingress -> START! / REFRESH!
+DEBUG 2024-09-23 21:00:26,585 to_log_file data_ingress -> streaming_status: stopped
+DEBUG 2024-09-23 21:00:26,585 to_log_file data_ingress -> context: {'streaming_message': 'Streaming is NOT started!', 'streaming_status': 'stopped', 'kafka_message': 'Kafka container is NOT running', 'kafka_container_status': 'stopped', 'tcp_server_message': 'Data Collection is NOT started!', 'tcp_server_status': 'stopped', 'button_clicked': False, 'click_time': None}
+DEBUG 2024-09-23 21:00:26,660 to_log_file get_client_name_id -> client_name_list: ['Wroclaw', 'Sydney', 'Beijing']
+DEBUG 2024-09-23 21:00:26,925 to_log_file get_unique_client_id_list -> unique_event_id_list: [0, 1, 2, 3, 4]
+DEBUG 2024-09-23 21:00:26,925 to_log_file get_unique_client_id_list -> type of unique_event_id_list: <class 'list'>
+DEBUG 2024-09-23 21:00:27,027 to_log_file start_thread -> Creating test-thread-error thread
+ERROR 2024-09-23 21:00:27,064 to_log_file start_thread -> Traceback (most recent call last):
+  File "C:\Projects\streaming_app - Copy\data_ingress\data_streaming\streaming_controls_helper.py", line 21, in start_thread
+    new_thread: threading.Thread = threading.Thread(target=target, args=args_tuple)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python3119\Lib\unittest\mock.py", line 1124, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python3119\Lib\unittest\mock.py", line 1128, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python3119\Lib\unittest\mock.py", line 1183, in _execute_mock_call
+    raise effect
+Exception: Thread creation error
+
+ERROR 2024-09-23 21:00:27,065 to_log_file start_thread -> Creating a test-thread-error thread - Failed!
+DEBUG 2024-09-23 21:00:27,066 to_log_file start_thread -> Creating test-thread thread
+DEBUG 2024-09-23 21:00:27,066 to_log_file start_thread -> Creating test-thread thread - Done!

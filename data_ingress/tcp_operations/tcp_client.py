@@ -11,7 +11,7 @@ from typing import List
 from streaming_app.config import tcp_config
 from data_ingress.tcp_operations.tcp_helper import (send_message_to_tcp_socket, create_tcp_socket,
                                                     connect_to_tcp_socket, close_tcp_socket)
-from data_ingress.tcp_operations.data_generator import get_unique_client_id_list, get_client_name_id
+from data_ingress.data_generator.random_data import get_unique_client_id_list, get_client_name_id
 from data_ingress.data_streaming.streaming_controls_helper import start_thread
 from data_ingress.google_protobuf import compose
 from data_ingress.logging_.to_log_file import log_debug, log_info, log_warning, log_error
