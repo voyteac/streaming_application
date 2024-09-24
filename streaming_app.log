@@ -1,0 +1,43 @@
+INFO 2024-09-23 23:49:21,471 to_log_file data_ingress -> START! / REFRESH!
+DEBUG 2024-09-23 23:49:21,471 to_log_file create_tcp_socket -> TCP socket created
+DEBUG 2024-09-23 23:49:22,472 to_log_file close_tcp_socket -> TCP connection closed
+DEBUG 2024-09-23 23:49:22,472 to_log_file execute_command_on_wsl -> Command to be executed: wsl bash -c "docker ps -a --format \"{{.Names}}: {{.Status}}\""
+DEBUG 2024-09-23 23:49:22,918 to_log_file execute_command_on_wsl -> Results of the command execution: CompletedProcess(args='wsl bash -c "docker ps -a --format \\"{{.Names}}: {{.Status}}\\""', returncode=0, stdout='kafka: Up 16 minutes\nzookeeper: Up 16 minutes\nelk2_logstash_1: Exited (143) 4 days ago\nelk2_es03_1: Exited (143) 4 days ago\nelk2_kibana_1: Exited (137) 4 days ago\nelk2_es02_1: Exited (137) 4 days ago\nelk2_es01_1: Exited (137) 4 days ago\nelk2_setup_1: Exited (0) 4 days ago\n', stderr='')
+DEBUG 2024-09-23 23:49:22,918 to_log_file get_running_docker_container_status -> containers_status: {'kafka': True, 'zookeeper': True, 'elk2_logstash_1': False, 'elk2_es03_1': False, 'elk2_kibana_1': False, 'elk2_es02_1': False, 'elk2_es01_1': False, 'elk2_setup_1': False}
+DEBUG 2024-09-23 23:49:22,918 to_log_file check_kafka_environment_status -> Is kafka running?: True
+DEBUG 2024-09-23 23:49:22,918 to_log_file check_kafka_environment_status -> Is zookeeper running?: True
+DEBUG 2024-09-23 23:49:22,918 to_log_file check_kafka_environment_status -> checking status: True
+DEBUG 2024-09-23 23:49:22,920 to_log_file get_streaming_status -> streaming_status: started
+DEBUG 2024-09-23 23:49:22,921 to_log_file data_ingress -> context: {'streaming_message': 'Streaming is ongoing!', 'streaming_status': 'started', 'kafka_message': 'Kafka container is running!', 'kafka_container_status': 'started', 'tcp_server_message': 'Data Collection is NOT started!', 'tcp_server_status': 'stopped', 'button_clicked': False, 'click_time': None}
+INFO 2024-09-23 23:49:22,967 to_log_file data_ingress -> START! / REFRESH!
+DEBUG 2024-09-23 23:49:22,968 to_log_file create_tcp_socket -> TCP socket created
+DEBUG 2024-09-23 23:49:23,974 to_log_file close_tcp_socket -> TCP connection closed
+DEBUG 2024-09-23 23:49:23,974 to_log_file execute_command_on_wsl -> Command to be executed: wsl bash -c "docker ps -a --format \"{{.Names}}: {{.Status}}\""
+DEBUG 2024-09-23 23:49:24,344 to_log_file execute_command_on_wsl -> Results of the command execution: CompletedProcess(args='wsl bash -c "docker ps -a --format \\"{{.Names}}: {{.Status}}\\""', returncode=0, stdout='kafka: Up 16 minutes\nzookeeper: Up 16 minutes\nelk2_logstash_1: Exited (143) 4 days ago\nelk2_es03_1: Exited (143) 4 days ago\nelk2_kibana_1: Exited (137) 4 days ago\nelk2_es02_1: Exited (137) 4 days ago\nelk2_es01_1: Exited (137) 4 days ago\nelk2_setup_1: Exited (0) 4 days ago\n', stderr='')
+DEBUG 2024-09-23 23:49:24,344 to_log_file get_running_docker_container_status -> containers_status: {'kafka': True, 'zookeeper': True, 'elk2_logstash_1': False, 'elk2_es03_1': False, 'elk2_kibana_1': False, 'elk2_es02_1': False, 'elk2_es01_1': False, 'elk2_setup_1': False}
+DEBUG 2024-09-23 23:49:24,344 to_log_file check_kafka_environment_status -> Is kafka running?: True
+DEBUG 2024-09-23 23:49:24,344 to_log_file check_kafka_environment_status -> Is zookeeper running?: True
+DEBUG 2024-09-23 23:49:24,344 to_log_file check_kafka_environment_status -> checking status: True
+DEBUG 2024-09-23 23:49:24,346 to_log_file get_streaming_status -> streaming_status: stopped
+DEBUG 2024-09-23 23:49:24,346 to_log_file data_ingress -> context: {'streaming_message': 'Streaming is NOT started!', 'streaming_status': 'stopped', 'kafka_message': 'Kafka container is running!', 'kafka_container_status': 'started', 'tcp_server_message': 'Data Collection is NOT started!', 'tcp_server_status': 'stopped', 'button_clicked': False, 'click_time': None}
+DEBUG 2024-09-23 23:49:24,421 to_log_file get_client_name_id -> client_name_list: ['Wroclaw', 'Sydney', 'Beijing']
+DEBUG 2024-09-23 23:49:24,444 to_log_file get_unique_client_id_list -> unique_event_id_list: [0, 1, 2, 3, 4]
+DEBUG 2024-09-23 23:49:24,444 to_log_file get_unique_client_id_list -> type of unique_event_id_list: <class 'list'>
+DEBUG 2024-09-23 23:49:24,626 to_log_file start_thread -> Creating test-thread-error thread
+ERROR 2024-09-23 23:49:24,628 to_log_file start_thread -> Traceback (most recent call last):
+  File "C:\Projects\streaming_app\data_ingress\data_streaming\streaming_controls_helper.py", line 21, in start_thread
+    new_thread: threading.Thread = threading.Thread(target=target, args=args_tuple)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python3119\Lib\unittest\mock.py", line 1124, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python3119\Lib\unittest\mock.py", line 1128, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python3119\Lib\unittest\mock.py", line 1183, in _execute_mock_call
+    raise effect
+Exception: Thread creation error
+
+ERROR 2024-09-23 23:49:24,628 to_log_file start_thread -> Creating a test-thread-error thread - Failed!
+DEBUG 2024-09-23 23:49:24,629 to_log_file start_thread -> Creating test-thread thread
+DEBUG 2024-09-23 23:49:24,630 to_log_file start_thread -> Creating test-thread thread - Done!

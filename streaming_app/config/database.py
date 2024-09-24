@@ -1,1 +1,1 @@
-table_name: str = 'data_ingress_databaseloader'
+table_name = 'data_ingress_databaseloader'

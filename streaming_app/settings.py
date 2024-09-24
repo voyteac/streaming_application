@@ -29,9 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'data_ingress.apps.DataIngressConfig',
-    
-    'rest_framework'
+    'data_ingress.apps.DataIngressConfig'
 ]
 
 MIDDLEWARE = [
@@ -70,7 +68,7 @@ WSGI_APPLICATION = 'streaming_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'streaming_app',  # The name of the database_handling you created
+        'NAME': 'streaming_app',  # The name of the database you created
         'USER': 'myuser',  # The PostgreSQL user you created
         'PASSWORD': 'mypassword',  # The password you set for the user
         'HOST': 'localhost',  # Replace with WSL IP address
@@ -229,4 +227,3 @@ ELASTICSEARCH_DSL = {
         'hosts': 'localhost:9200'
     },
 }
-

@@ -1,6 +1,6 @@
 # from django.test import TestCase, RequestFactory
 # from unittest.mock import patch, MagicMock
-# from data_ingress.data_collection.streaming_controls import start_data_collection_view, stop_data_collection_view, data_collection_manager
+# from data_ingress.data_streaming.streaming_controls import start_data_collection_view, stop_data_collection_view, data_collection_manager
 #
 #
 #
@@ -10,8 +10,8 @@
 #         self.request = self.factory.get('/data_ingress/')
 #         self.request.session = {}
 #
-#     @patch('data_ingress.kafka_container_control.kafka_container_control.kafka_container_check')
-#     @patch('data_ingress.data_collection.streaming_controls_helper.start_thread')
+#     @patch('data_ingress.kafka.kafka_container_control.kafka_container_check')
+#     @patch('data_ingress.data_streaming.streaming_controls_helper.start_thread')
 #     def test_start_data_collection_success(self, mock_start_thread, mock_kafka_container_check):
 #         mock_kafka_container_check.return_value = True
 #
@@ -36,7 +36,7 @@
 #         mock_start_thread.assert_called_once()
 #
 #
-#     # @patch('data_ingress.kafka_container_control.kafka_container_control.kafka_container_check')
+#     # @patch('data_ingress.kafka.kafka_container_control.kafka_container_check')
 #     # @patch('data_ingress.logging_.to_log_file.log_warning')
 #     # def test_start_data_collection_kafka_not_running(self, mock_log_warning, mock_kafka_container_check):
 #     #     mock_kafka_container_check.return_value = False  # Simulate Kafka container not running
