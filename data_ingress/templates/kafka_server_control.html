@@ -1,0 +1,15 @@
+{% if kafka_container_status == 'started' %}
+    <form method="get" action="{% url 'stop-kafka-container' %}">
+        <button type="submit" style="color: red;">Stop Container</button>
+    </form>
+{% elif kafka_container_status == 'stopped' %}
+    <form method="get" action="{% url 'start-kafka-container' %}">
+        <button type="submit" style="color: red;">Start Container</button>
+    </form>
+{% else %}
+    <p>Error occurred, contact admin: {{ kafka_container_message }} </p>
+{% endif %}
+
+{% if kafka_container_message %}
+    <p>{{ kafka_container_message }}</p>
+{% endif %}
