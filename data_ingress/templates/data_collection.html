@@ -1,0 +1,20 @@
+{% if data_collection_status == 'started' %}
+    <form method="get" action="{% url 'stop-data-collection' %}">
+        {% csrf_token %}
+        <button type="submit" style="color: red;">Stop Data Collection</button>
+    </form>
+{% else %}
+    <form method="get" action="{% url 'start-data-collection' %}">
+        {% csrf_token %}
+        {% if kafka_container_status == 'stopped' %}
+            <button type="submit" disabled>Start Data Collection</button>
+            <p>Start Kafka first!'</p>
+        {% else %}
+            <button type="submit" style="color: red;">Start Data Collection</button>
+        {% endif %}
+    </form>
+{% endif %}
+
+{% if data_collection_message %}
+    <p>{{ data_collection_message }}</p>
+{% endif %}

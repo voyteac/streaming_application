@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-from data_ingress.data_streaming.streaming_controls_helper import start_thread, StartingThreadFailed
+from data_ingress.data_collection.data_collection_controller_helper import start_thread, StartingThreadFailed
 
 
 class TestStartThread(unittest.TestCase):

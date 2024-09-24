@@ -1,0 +1,12 @@
+<div>
+    <form method="post" action="{% url 'clear-table' %}">
+        {% csrf_token %}
+        <button type="submit" name="action" value="click" style="color: red;">Clean table</button>
+    </form>
+
+    {% if button_clicked %}
+        <p>Table cleaned at {{click_time}}</p>
+    {% else %}
+        <p>Not cleaned!</p>
+    {% endif %}
+</div>
