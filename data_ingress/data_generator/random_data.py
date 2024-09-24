@@ -20,12 +20,12 @@ def get_client_name_id(number_of_clients: int) -> List[str]:
         city: str = faker.city()
         if ' ' not in city:
             name_list.append(city)
-    log_debug(get_client_name_id.__name__, f'client_name_list: {name_list}')
+    log_debug(get_client_name_id, f'client_name_list: {name_list}')
     return name_list
 
 
 def get_unique_client_id_list(number_of_clients: int) -> List[int]:
     unique_client_id_list = random.sample(range(number_of_clients), number_of_clients)
-    log_debug(get_unique_client_id_list.__name__, f'unique_event_id_list: {unique_client_id_list}')
-    log_debug(get_unique_client_id_list.__name__, f'type of unique_event_id_list: {type(unique_client_id_list)}')
+    log_debug(get_unique_client_id_list, f'unique_event_id_list: {unique_client_id_list}')
+    log_debug(get_unique_client_id_list, f'type of unique_event_id_list: {type(unique_client_id_list)}')
     return unique_client_id_list

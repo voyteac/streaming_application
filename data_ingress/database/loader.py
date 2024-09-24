@@ -1,42 +1,42 @@
 from kafka.consumer.fetcher import ConsumerRecord
-
+from typing import Callable
 from data_ingress.models import DataBaseLoader
 from data_ingress.logging_.to_log_file import log_debug, log_info, log_error, log_error_traceback
 
 
 class KafkaMessageToDatabaseMessageConversionFailed(Exception):
-    def __init__(self, exception_message: str, function_name: str, kafka_msg: ConsumerRecord):
+    def __init__(self, exception_message: str, function: Callable, kafka_msg: ConsumerRecord):
         super().__init__(exception_message)
         self.exception_message: str = exception_message
-        self.function_name: str = function_name
+        self.function: Callable = function
         self.kafka_msg: ConsumerRecord = kafka_msg
-        log_error(self.function_name,f'Converting Kafka message to database message failed {self.exception_message}')
-        log_error(self.function_name, f'Kafka Topic:: {self.kafka_msg.topic}')
-        log_error(self.function_name, f'Kafka Message: {self.kafka_msg.value}')
+        log_error(self.function,f'Converting Kafka message to database message failed {self.exception_message}')
+        log_error(self.function, f'Kafka Topic:: {self.kafka_msg.topic}')
+        log_error(self.function, f'Kafka Message: {self.kafka_msg.value}')
 
 class SavingToDatabaseFailed(Exception):
-    def __init__(self,  exception_message: str, function_name: str):
+    def __init__(self,  exception_message: str, function: Callable):
         super().__init__(exception_message)
         self.exception_message: str = exception_message
-        self.function_name: str = function_name
-        log_error(self.function_name,f'Saving to database failed!')
+        self.function: Callable = function
+        log_error(self.function,f'Saving to database failed!')
 
 
 def save_kafka_message_to_database(kafka_msg: ConsumerRecord) -> None:
-    log_info(save_kafka_message_to_database.__name__, 'Loading message to database')
+    log_info(save_kafka_message_to_database, 'Loading message to database')
 
     database_message: DataBaseLoader = get_database_message_from_kafka_message(kafka_msg)
     try:
         database_message.save()
     except Exception as e:
-        log_error_traceback(save_kafka_message_to_database.__name__)
-        raise SavingToDatabaseFailed(str(e), save_kafka_message_to_database.__name__) from e
+        log_error_traceback(save_kafka_message_to_database)
+        raise SavingToDatabaseFailed(str(e), save_kafka_message_to_database) from e
     else:
-        log_info(save_kafka_message_to_database.__name__, 'Loading message to database - Done')
+        log_info(save_kafka_message_to_database, 'Loading message to database - Done')
 
 
 def get_database_message_from_kafka_message(kafka_msg: ConsumerRecord) -> DataBaseLoader:
-    log_debug(get_database_message_from_kafka_message.__name__,f'Kafka message to database message conversion ...')
+    log_debug(get_database_message_from_kafka_message,f'Kafka message to database message conversion ...')
     try:
         unique_client_id = get_unique_client_id(kafka_msg)
         kafka_unique_client_id = kafka_msg.value.get('unique_client_id')
@@ -76,11 +76,10 @@ def get_database_message_from_kafka_message(kafka_msg: ConsumerRecord) -> DataBa
             metric_11=kafka_metric_11
         )
     except Exception as e:
-        log_error_traceback(get_database_message_from_kafka_message.__name__)
-        raise KafkaMessageToDatabaseMessageConversionFailed(str(e), get_database_message_from_kafka_message.__name__,
-                                                            kafka_msg) from e
+        log_error_traceback(get_database_message_from_kafka_message)
+        raise KafkaMessageToDatabaseMessageConversionFailed(str(e), get_database_message_from_kafka_message, kafka_msg) from e
     else:
-        log_debug(get_database_message_from_kafka_message.__name__, f'Kafka message to database message conversion - Done! Database message\n{kafka_msg}')
+        log_debug(get_database_message_from_kafka_message, f'Kafka message to database message conversion - Done! Database message\n{kafka_msg}')
         return database_message
 
 

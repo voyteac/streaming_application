@@ -1,5 +1,5 @@
 import time
-from typing import Dict, Optional
+from typing import Dict, Optional, Callable
 from typing import List
 from subprocess import CompletedProcess
 
@@ -23,12 +23,12 @@ wsl_confirm__string_kafka_stopped: str = kafka_config.wsl_confirm__string_kafka_
 
 
 class StartingContainerFailed(Exception):
-    def __init__(self, function_name: str, exception_message: str, container_name: str):
+    def __init__(self, function: Callable, exception_message: str, container_name: str):
         super().__init__(exception_message)
-        self.function_name: str = function_name
+        self.function: Callable = function
         self.exception_message: str = exception_message
         self.container_name: str = container_name
-        log_error(function_name, f'Starting {self.container_name} container- Failed! Error: {self.exception_message}')
+        log_error(function, f'Starting {self.container_name} container- Failed! Error: {self.exception_message}')
 
 
 def kafka_container_check() -> bool:
@@ -59,7 +59,7 @@ def conclude_container_status_from_output(containers_lines: List[str]) -> Dict:
             kafka_container_name: False,
             zookeeper_container_name: False
         }
-    log_debug(get_running_docker_container_status.__name__, f'containers_status: {containers_status}')
+    log_debug(get_running_docker_container_status, f'containers_status: {containers_status}')
     return containers_status
 
 
@@ -68,29 +68,29 @@ def check_kafka_environment_status(running_containers_status: Dict) -> bool:
     is_zookeeper_cont_running: bool = running_containers_status[zookeeper_container_name]
     kafka_environment_status: bool = is_kafka_cont_running and is_zookeeper_cont_running
 
-    log_debug(check_kafka_environment_status.__name__, f'Is kafka running?: {is_kafka_cont_running}')
-    log_debug(check_kafka_environment_status.__name__, f'Is zookeeper running?: {is_zookeeper_cont_running}')
-    log_debug(check_kafka_environment_status.__name__, f'checking status: {kafka_environment_status}')
+    log_debug(check_kafka_environment_status, f'Is kafka running?: {is_kafka_cont_running}')
+    log_debug(check_kafka_environment_status, f'Is zookeeper running?: {is_zookeeper_cont_running}')
+    log_debug(check_kafka_environment_status, f'checking status: {kafka_environment_status}')
 
     return kafka_environment_status
 
 
 def start_kafka_container(request: HttpRequest) -> Optional[HttpResponse]:
-    log_info(start_kafka_container.__name__, 'Starting Kafka!')
+    log_info(start_kafka_container, 'Starting Kafka!')
     is_zookeeper_started: bool = start_zookeeper_container()
     try:
         if is_zookeeper_started:
             execute_command_on_wsl(wsl_command_kafka_start)
-            log_info(start_kafka_container.__name__, 'Starting Kafka - Started!')
+            log_info(start_kafka_container, 'Starting Kafka - Started!')
             set_kafka_container_status_to_started(request)
             return redirect('data-ingress')
         else:
-            raise StartingContainerFailed(start_kafka_container.__name__,
+            raise StartingContainerFailed(start_kafka_container,
                                           f'is_zookeeper_started: {is_zookeeper_started}',
                                           zookeeper_container_name)
     except Exception as e:
-        log_error_traceback(start_kafka_container.__name__)
-        raise StartingContainerFailed(start_kafka_container.__name__, str(e), kafka_container_name) from e
+        log_error_traceback(start_kafka_container)
+        raise StartingContainerFailed(start_kafka_container, str(e), kafka_container_name) from e
 
 
 def set_kafka_container_status_to_started(request: HttpRequest) -> None:
@@ -98,29 +98,29 @@ def set_kafka_container_status_to_started(request: HttpRequest) -> None:
 
 
 def start_zookeeper_container() -> bool:
-    log_info(start_kafka_container.__name__, 'Starting Zookeeper !')
+    log_info(start_kafka_container, 'Starting Zookeeper !')
     execute_command_on_wsl(wsl_command_zookeeper_start)
     retries: int = 0
     while retries < max_retries:
         if is_tcp_port_open(zookeeper_host, zookeeper_port):
-            log_info(start_kafka_container.__name__, 'Zookeeper is running.')
+            log_info(start_kafka_container, 'Zookeeper is running.')
             return True
-        log_warning(start_zookeeper_container.__name__, f'Waiting for Zookeeper... (attempt {retries + 1}/{max_retries})')
+        log_warning(start_zookeeper_container, f'Waiting for Zookeeper... (attempt {retries + 1}/{max_retries})')
         time.sleep(zookeeper_launch_retry_timer)
         retries += 1
     else:
-        raise StartingContainerFailed(start_zookeeper_container.__name__,
+        raise StartingContainerFailed(start_zookeeper_container,
                                       'Zookeeper failed to start in time.', zookeeper_container_name)
 
 
 def stop_kafka_container(request: HttpRequest) -> HttpResponse:
-    log_info(start_kafka_container.__name__, 'Stopping Kafka Container')
+    log_info(start_kafka_container, 'Stopping Kafka Container')
     cmd_result: CompletedProcess = execute_command_on_wsl(wsl_command_kafka_stop)
     if wsl_confirm__string_kafka_stopped in cmd_result.stdout.strip().split('\n'):
         set_kafka_container_status_to_stopped(request)
-        log_info(stop_kafka_container.__name__, 'Stopping Kafka Container - Stopped')
+        log_info(stop_kafka_container, 'Stopping Kafka Container - Stopped')
     else:
-        log_info(stop_kafka_container.__name__, 'Stopping Kafka Container - Not stopped - command output: {cmd_result}')
+        log_info(stop_kafka_container, 'Stopping Kafka Container - Not stopped - command output: {cmd_result}')
     return redirect('data-ingress')
 
 

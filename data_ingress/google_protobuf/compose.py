@@ -12,7 +12,7 @@ class ErrorDuringGpbEventCompose(Exception):
 
 
 def compose_gpb_event(unique_client_id: int, message_number: int, client_name: str) -> bytes:
-    log_debug(compose_gpb_event.__name__, 'composing a serialized google protobuf event notification')
+    log_debug(compose_gpb_event, 'composing a serialized google protobuf event notification')
 
     timestamp: float = get_timestamp()
     metric_values: List[float] = get_metrics_values()
@@ -39,10 +39,10 @@ def compose_gpb_event(unique_client_id: int, message_number: int, client_name: s
         )
         serialized_to_string_gpb_event: bytes = gpb_event.SerializeToString()
     except ErrorDuringGpbEventCompose as e:
-        log_error(compose_gpb_event.__name__, f'Compose_serialized_gpb_event failed: {e}')
+        log_error(compose_gpb_event, f'Compose_serialized_gpb_event failed: {e}')
     else:
 
-        log_debug(compose_gpb_event.__name__, f'Serialized_to_string_gpb_event: {serialized_to_string_gpb_event}')
+        log_debug(compose_gpb_event, f'Serialized_to_string_gpb_event: {serialized_to_string_gpb_event}')
         return serialized_to_string_gpb_event
 
 
@@ -67,10 +67,10 @@ def get_metrics_values()-> List[float]:
 def log_message_content(unique_client_id: int, message_number: int, client_name: str, timestamp: float,
                         metric_values: List[float]) -> None:
 
-    log_debug(log_message_content.__name__, f'unique_client_id: {unique_client_id}')
-    log_debug(log_message_content.__name__, f'message_number: {message_number}')
-    log_debug(log_message_content.__name__, f'client_name: {client_name}')
-    log_debug(log_message_content.__name__, f'timestamp: {timestamp}')
+    log_debug(log_message_content, f'unique_client_id: {unique_client_id}')
+    log_debug(log_message_content, f'message_number: {message_number}')
+    log_debug(log_message_content, f'client_name: {client_name}')
+    log_debug(log_message_content, f'timestamp: {timestamp}')
 
     for metric_id, metric in enumerate(metric_values):
-        log_debug(log_message_content.__name__, f'metric_{metric_id}: {metric}')
+        log_debug(log_message_content, f'metric_{metric_id}: {metric}')

@@ -13,7 +13,7 @@ def clear_table() -> None:
                 cursor.execute(f'TRUNCATE TABLE {table_name} RESTART IDENTITY CASCADE;')
                 double_check_whether_table_was_cleared(table_name)
             else:
-                log_info(clear_table.__name__, f'Table {table_name} was ALREADY empty')
+                log_info(clear_table, f'Table {table_name} was ALREADY empty')
     except OperationalError as e:
         raise RuntimeError(f"Database error: {e}")
 
@@ -26,7 +26,7 @@ def get_number_of_rows_in_table(table_name_arg: str) -> int:
 def double_check_whether_table_was_cleared(table_name_arg: str) -> None:
     double_checked_number_of_rows_in_table: int = get_number_of_rows_in_table(table_name_arg)
     if double_checked_number_of_rows_in_table != 0:
-        log_info(clear_table.__name__, f'Table {table_name_arg} has been truncated.')
+        log_info(clear_table, f'Table {table_name_arg} has been truncated.')
     else:
-        log_error(clear_table.__name__, f'Table {table_name_arg} was NOT cleand')
+        log_error(clear_table, f'Table {table_name_arg} was NOT cleand')
 

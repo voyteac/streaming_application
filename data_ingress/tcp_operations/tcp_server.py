@@ -52,7 +52,7 @@ class PutToKafkaFailed(Exception):
 
 
 def start_data_flow(stop_streaming_flag: threading.Event) -> None:
-    log_info(start_data_flow.__name__, f'Starting a data flow from TCP server to Kafka')
+    log_info(start_data_flow, f'Starting a data flow from TCP server to Kafka')
 
     kafka_producer: KafkaProducer = initialize_kafka_producer()
     kafka_consumer: KafkaConsumer = initialize_kafka_consumer()
@@ -65,15 +65,15 @@ def start_data_flow(stop_streaming_flag: threading.Event) -> None:
         while not stop_streaming_flag.is_set():
             start_streaming_to_kafka(kafka_consumer, kafka_producer, tcp_socket)
     except Exception as e:
-        log_error_traceback(start_data_flow.__name__)
-        raise DataFlowFromTcpServerToKafkaFailed(str(e), start_data_flow.__name__) from e
+        log_error_traceback(start_data_flow)
+        raise DataFlowFromTcpServerToKafkaFailed(str(e), start_data_flow) from e
     finally:
         close_tcp_socket(tcp_socket)
 
 
 def start_streaming_to_kafka(kafka_consumer: KafkaConsumer, kafka_producer: KafkaProducer,
                              tcp_socket: socket.socket) -> None:
-    log_info(start_streaming_to_kafka.__name__, 'Starting streaming to Kafka')
+    log_info(start_streaming_to_kafka, 'Starting streaming to Kafka')
     start_thread(start_consuming, (kafka_consumer,), 'kafka consumer')
     start_thread(load_data_to_kafka, (kafka_producer, tcp_to_kafka_data_queue), 'kafka producer')
     try:
@@ -82,13 +82,13 @@ def start_streaming_to_kafka(kafka_consumer: KafkaConsumer, kafka_producer: Kafk
     except socket.timeout:
         pass
     except Exception as e:
-        log_error_traceback(start_streaming_to_kafka.__name__)
-        raise StreamingToKafkaFailed(str(e), start_streaming_to_kafka.__name__) from e
+        log_error_traceback(start_streaming_to_kafka)
+        raise StreamingToKafkaFailed(str(e), start_streaming_to_kafka) from e
         # return
 
 
 def handle_tcp_connection(tcp_connection: socket.socket, tcp_to_kafka_data_queue_arg: queue.Queue) -> None:
-    log_info(handle_tcp_connection.__name__, 'Handling tcp connection...')
+    log_info(handle_tcp_connection, 'Handling tcp connection...')
     with tcp_connection:
         try:
             while True:
@@ -97,19 +97,19 @@ def handle_tcp_connection(tcp_connection: socket.socket, tcp_to_kafka_data_queue
                     break
                 send_data_to_kafka(received_data, tcp_to_kafka_data_queue_arg)
         except Exception as e:
-            log_error_traceback(handle_tcp_connection.__name__)
-            raise TcpConnectionHandlingFailed(str(e), handle_tcp_connection.__name__)
+            log_error_traceback(handle_tcp_connection)
+            raise TcpConnectionHandlingFailed(str(e), handle_tcp_connection)
 
 
 def send_data_to_kafka(data: bytes, tcp_to_kafka_data_queue_arg: queue.Queue) -> None:
-    log_debug(send_data_to_kafka.__name__, f'Put data to kafka queue thread')
+    log_debug(send_data_to_kafka, f'Put data to kafka queue thread')
     try:
         tcp_to_kafka_data_queue_arg.put(data)
     except Exception as e:
-        log_error_traceback(send_data_to_kafka.__name__)
-        raise PutToKafkaFailed(str(e), send_data_to_kafka.__name__)
+        log_error_traceback(send_data_to_kafka)
+        raise PutToKafkaFailed(str(e), send_data_to_kafka)
     else:
-        log_debug(handle_tcp_connection.__name__, f'Put data to kafka queue thread - Done!')
+        log_debug(handle_tcp_connection, f'Put data to kafka queue thread - Done!')
 
 
 

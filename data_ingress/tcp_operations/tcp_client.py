@@ -27,7 +27,7 @@ retry_delay: int = tcp_config.retry_delay
 
 
 def start_streaming(request: HttpRequest) -> HttpResponse:
-    log_info(start_streaming.__name__, 'Start streaming...')
+    log_info(start_streaming, 'Start streaming...')
 
     global streaming_threads
     global stop_streaming_flag
@@ -64,24 +64,24 @@ def get_thread_name(internal_client_id: int) -> str:
 
 def get_number_of_data_generators_from_gui(request: HttpRequest) -> int:
     number_of_clients: int = int(request.GET.get('num_streams', default_number_of_tcp_clients))
-    log_debug(get_number_of_data_generators_from_gui.__name__, f'number_of_clients: {number_of_clients}')
+    log_debug(get_number_of_data_generators_from_gui, f'number_of_clients: {number_of_clients}')
     return number_of_clients
 
 
 def send_message_to_server(unique_client_id: int, client_name: str, stop_flag: threading.Event) -> None:
-    log_info(send_message_to_server.__name__, 'Sending message to server')
+    log_info(send_message_to_server, 'Sending message to server')
 
     message_number: int = 0
     tcp_socket: Optional[socket.socket] = None
 
     while not stop_flag.is_set():
         if tcp_socket is None:
-            log_debug(send_message_to_server.__name__, 'Connecting to server...')
+            log_debug(send_message_to_server, 'Connecting to server...')
             try:
                 tcp_socket = create_tcp_socket()
                 tcp_socket = connect_to_tcp_socket(tcp_socket, client_host, port)
             except Exception as e:
-                log_error(send_message_to_server.__name__, f'Connection error: {e}')
+                log_error(send_message_to_server, f'Connection error: {e}')
                 tcp_socket = None
                 time.sleep(retry_delay)
                 continue
@@ -92,19 +92,19 @@ def send_message_to_server(unique_client_id: int, client_name: str, stop_flag: t
             message_number += 1
             time.sleep(data_generation_pause_period)
         except Exception as e:
-            log_error(send_message_to_server.__name__, f'Error sending message: {e}')
+            log_error(send_message_to_server, f'Error sending message: {e}')
             tcp_socket = None
             time.sleep(retry_delay)
 
     if tcp_socket:
         close_tcp_socket(tcp_socket)
-    log_debug(send_message_to_server.__name__, f'Client {unique_client_id} stopped streaming.')
+    log_debug(send_message_to_server, f'Client {unique_client_id} stopped streaming.')
 
 
 
 def stop_streaming(request: HttpRequest) -> HttpResponse:
 
-    log_info(stop_streaming.__name__, 'Stopping streaming...')
+    log_info(stop_streaming, 'Stopping streaming...')
     global stop_streaming_flag, streaming_threads
 
     stop_errors: List[str] = []
@@ -115,9 +115,9 @@ def stop_streaming(request: HttpRequest) -> HttpResponse:
     for single_thread in streaming_threads:
         try:
             single_thread.join()
-            log_info(stop_streaming.__name__, f'Thread {single_thread.name} stopped successfully.')
+            log_info(stop_streaming, f'Thread {single_thread.name} stopped successfully.')
         except Exception as e:
-            log_error(stop_streaming.__name__, f'Error stopping thread {single_thread.name}: {e}')
+            log_error(stop_streaming, f'Error stopping thread {single_thread.name}: {e}')
             stop_errors.append(f"Error stopping {single_thread.name}: {e}")
 
     streaming_threads = []
@@ -125,11 +125,11 @@ def stop_streaming(request: HttpRequest) -> HttpResponse:
 
     request.session['streaming_status'] = 'stopped'
 
-    log_info(stop_streaming.__name__, 'Streaming stopped.')
+    log_info(stop_streaming, 'Streaming stopped.')
 
     if stop_errors:
-        log_warning(stop_streaming.__name__, 'Some threads encountered errors during stopping.')
+        log_warning(stop_streaming, 'Some threads encountered errors during stopping.')
     else:
-        log_info(stop_streaming.__name__, 'All threads stopped successfully.')
+        log_info(stop_streaming, 'All threads stopped successfully.')
 
     return redirect('data-ingress')
