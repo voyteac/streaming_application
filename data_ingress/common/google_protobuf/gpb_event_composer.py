@@ -20,7 +20,6 @@ class GpbEventComposer:
 
         timestamp: float = self.timestamp_utility.get_timestamp()
         metric_values: List[float] = self.get_metrics_values()
-        self.log_message_content(unique_client_id, message_number, client_name, timestamp, metric_values)
 
         try:
             gpb_event = event_scheme.EventNotification(
@@ -45,7 +44,7 @@ class GpbEventComposer:
         except ErrorDuringGpbEventCompose as e:
             log_error(self.compose_gpb_event, f'Compose_serialized_gpb_event failed: {e}')
         else:
-
+            self.log_message_content(unique_client_id, message_number, client_name, timestamp, metric_values)
             log_debug(self.compose_gpb_event, f'Serialized_to_string_gpb_event: {serialized_to_string_gpb_event}')
             return serialized_to_string_gpb_event
 
@@ -53,7 +52,7 @@ class GpbEventComposer:
 
     def get_metrics_values(self)-> List[float]:
         metric_values: List[float] = [
-            self.random_data_generator.get_metric_value(0, 1, 4),  # metric_0
+            self.random_data_generator.get_metric_value(0, 1, 2),  # metric_0
             self.random_data_generator.get_metric_value(-1, 1, 4),  # metric_1
             self.random_data_generator.get_metric_value(-10, 10, 3),  # metric_2
             self.random_data_generator.get_metric_value(-100, 100, 1),  # metric_3

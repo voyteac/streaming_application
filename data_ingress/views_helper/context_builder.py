@@ -1,23 +1,27 @@
-from typing import Tuple, Dict, Optional
+from typing import Tuple, Dict, Optional, Protocol
 
 from django.http import HttpRequest
 
-from data_ingress.common.dummy_data.timestamp_generator import TimestampGenerator
 from data_ingress.common.logging_.to_log_file import log_debug
 from data_ingress.common.windows_operations.windows_actions_handler import WindowsActionsHandler
 from streaming_app.config.tcp_config import port
 
 
-class ContextBuilder:
-    def __init__(self):
-        self.timestamp_utility = TimestampGenerator()
-        self.windows_actions_handler = WindowsActionsHandler()
+class TimestampGenerator(Protocol):
+    def get_formatted_timestamp(self) -> str:
+        """format timestamp"""
 
+
+class ContextBuilder:
+    def __init__(self, timestamp_generator: TimestampGenerator):
+        self.windows_actions_handler = WindowsActionsHandler()
+        self.timestamp_generator = timestamp_generator
         self.tcp_port = port
 
     def build_context(self, data_generation_status: str, data_collection_status: bool, kafka_container_status: bool,
-                      button_clicked: Optional[bool], click_time: Optional[str]) -> Dict:
+                      button_clicked: Optional[bool]) -> Dict:
 
+        click_time = self.timestamp_generator.get_formatted_timestamp()
         context_dict = {
             'data_generation_message': self.get_data_generation_message(data_generation_status),
             'data_generation_status': data_generation_status,
@@ -41,16 +45,14 @@ class ContextBuilder:
     def get_data_collection_status(self, data_collection_status: bool) -> str:
         return 'started' if data_collection_status == True else 'stopped'
 
-    def check_button_click(self, request: HttpRequest) -> Tuple[bool, Optional[str]]:
+    def check_button_click(self, request: HttpRequest) -> bool:
         button_clicked = False
-        click_time = None
         if request.method == 'POST' and 'action' in request.POST:
             action = request.POST['action']
             if action == 'click':
                 button_clicked = True
-                click_time = self.timestamp_utility.get_formatted_timestamp()
                 log_debug(self.check_button_click, f'button_clicked: {str(button_clicked)}')
-        return button_clicked, click_time
+        return button_clicked
 
     def get_data_generation_message(self, status: str) -> str:
         return 'Streaming is ongoing!' if status == 'started' else 'Streaming is NOT started!'

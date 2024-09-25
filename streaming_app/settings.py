@@ -2,6 +2,7 @@ import time
 from pathlib import Path
 import os
 
+from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'data_ingress.apps.DataIngressConfig',
-    
+    'data_display.apps.DataDisplayConfig',
     'rest_framework'
 ]
 
@@ -124,9 +125,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ########################################## LOGGER SETTINGS ##########################################
 # Define the path to the file you want to clear
 streaming_app_log_file_name = "streaming_app.log"
-data_generation_log_file_name = "data_generation.log"
 STREAMING_APP_LOG_FILE = os.path.join(BASE_DIR, streaming_app_log_file_name)
-DATA_GENERATION_LOG_FILE = os.path.join(BASE_DIR, data_generation_log_file_name)
 
 
 def clear_file(filename):
@@ -134,19 +133,12 @@ def clear_file(filename):
         pass
 
 clear_file(STREAMING_APP_LOG_FILE)
-clear_file(DATA_GENERATION_LOG_FILE)
 
 
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        # 'django_file': {
-        #     'level': 'DEBUG',
-        #     'class': 'logging.FileHandler',
-        #     'filename': os.path.join(BASE_DIR, 'django_debug.log'),
-        #     'formatter': 'verbose',
-        # },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -158,13 +150,6 @@ LOGGING = {
             'filename': os.path.join(BASE_DIR, streaming_app_log_file_name),  # Custom log file
             'formatter': 'verbose',
         },
-        'data_generation_log_file_name': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, data_generation_log_file_name),  # Custom log file
-            'formatter': 'verbose',
-        },
-
     },
     'formatters': {
         'verbose': {
@@ -177,21 +162,11 @@ LOGGING = {
         },
     },
     'loggers': {
-        # 'django': {
-        #     'handlers': ['django_file'],
-        #     'level': 'DEBUG',
-        #     'propagate': False,
-        # },
         'streaming_app': {
             'handlers': ['streaming_app_log_file_name'],
             'level': 'DEBUG',
             'propagate': False,
-        },
-        'data_generation': {
-            'handlers': ['data_generation_log_file_name'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
+        }
     },
 }
 
@@ -229,4 +204,5 @@ ELASTICSEARCH_DSL = {
         'hosts': 'localhost:9200'
     },
 }
+
 

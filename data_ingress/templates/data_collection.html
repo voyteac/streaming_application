@@ -7,7 +7,7 @@
     <form method="get" action="{% url 'start-data-collection' %}">
         {% csrf_token %}
         {% if kafka_container_status == 'stopped' %}
-            <button type="submit" disabled>Start Data Collection</button>
+            <button type="submit" style="color: darkgrey;" disabled>Start Data Collection</button>
             <p>Start Kafka first!'</p>
         {% else %}
             <button type="submit" style="color: red;">Start Data Collection</button>

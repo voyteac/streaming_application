@@ -1,0 +1,59 @@
+<div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Data Table</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: center;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+    <table>
+        <thead>
+        <tr>
+            {% for column in column_headers %}
+            <th>{{ column }}</th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in table_content %}
+        <tr>
+            <td>{{ row.internal_unique_client_id }}</td>
+            <td>{{ row.unique_client_id }}</td>
+            <td>{{ row.timestamp }}</td>
+            <td>{{ row.message_number }}</td>
+            <td>{{ row.client_name }}</td>
+            <td>{{ row.metric_0 }}</td>
+            <td>{{ row.metric_1 }}</td>
+            <td>{{ row.metric_2 }}</td>
+            <td>{{ row.metric_3 }}</td>
+            <td>{{ row.metric_4 }}</td>
+            <td>{{ row.metric_5 }}</td>
+            <td>{{ row.metric_6 }}</td>
+            <td>{{ row.metric_7 }}</td>
+            <td>{{ row.metric_8 }}</td>
+            <td>{{ row.metric_9 }}</td>
+            <td>{{ row.metric_10 }}</td>
+            <td>{{ row.metric_11 }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="{{ number_columns }}">No data available.</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </body>
+</div>

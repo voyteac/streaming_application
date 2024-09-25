@@ -12,16 +12,6 @@ from data_ingress.data_generation.data_generation_controller_helper import DataG
 from data_ingress.common.threads.threads_helper import ThreadsHelper
 
 
-# streaming_threads: List[str] = []
-# stop_streaming_flag: List[str] = []
-#
-# client_host: str = tcp_config.client_host
-# port: int = tcp_config.port
-# default_number_of_tcp_clients: int = tcp_config.default_number_of_tcp_clients
-# data_generation_pause_period: int = tcp_config.data_generation_pause_period
-# retry_delay: int = tcp_config.retry_delay
-
-
 class DataGenerationController:
     def __init__(self):
         self.helper = DataGenerationControllerHelper()

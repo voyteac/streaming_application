@@ -3,7 +3,7 @@ import json
 from typing import Optional
 
 from data_ingress.common.logging_.to_log_file import log_debug, log_error_traceback
-
+from data_ingress.common.google_protobuf.gpb_exceptions import ErrorDuringGpbEventDecompose, ErrorDuringDecomposingUniqueClientId
 
 class GpbEventDecomposer:
     def __init__(self):

@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<style>
+    .data-ingress-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+</style>
+
+<h1>Data Display</h1>
+<hr>
+
+<div class="data-display-container">
+    <div>
+        {% include 'table.html' %}
+    </div>
+</div>
+
+{% endblock content %}
