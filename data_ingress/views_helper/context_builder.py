@@ -1,10 +1,17 @@
-from typing import Tuple, Dict, Optional, Protocol
-
-from django.http import HttpRequest
+from typing import Protocol, Dict, Optional
 
 from data_ingress.common.logging_.to_log_file import log_debug
 from data_ingress.common.windows_operations.windows_actions_handler import WindowsActionsHandler
-from streaming_app.config.tcp_config import port
+
+
+from django.http import HttpRequest
+from data_ingress.common.tcp_operations.tcp_helper import TcpHelper
+from data_ingress.container_control.common.docker_service_config_json_parser import DockerServiceConfigJsonParser
+from data_ingress.container_control.kafka_docker_service_controller import kafka_docker_service_controller
+from data_ingress.container_control.postgres_docker_service_controller import postgres_docker_service_controller
+from data_ingress.container_control.elk_docker_service_controller import elk_docker_service_controller
+from streaming_app.config import containers_config
+from data_ingress.container_control.common import docker_service_config_json_parser
 
 
 class TimestampGenerator(Protocol):
@@ -13,37 +20,71 @@ class TimestampGenerator(Protocol):
 
 
 class ContextBuilder:
-    def __init__(self, timestamp_generator: TimestampGenerator):
+    def __init__(self, request: HttpRequest, timestamp_generator: TimestampGenerator):
+
         self.windows_actions_handler = WindowsActionsHandler()
         self.timestamp_generator = timestamp_generator
-        self.tcp_port = port
+        self.tcp_helper = TcpHelper()
 
-    def build_context(self, data_generation_status: str, data_collection_status: bool, kafka_container_status: bool,
-                      button_clicked: Optional[bool]) -> Dict:
+        data_collection_data = containers_config.data_collection
+        data_generation_data = containers_config.data_generation
+        kafka_docker_service_data = containers_config.kafka_service_data
+        elk_docker_service_data = containers_config.elk_service_data
+        postgres_docker_service_data = containers_config.postgres_service_data
 
-        click_time = self.timestamp_generator.get_formatted_timestamp()
+        self.data_collection_config = docker_service_config_json_parser.DockerServiceConfigJsonParser(data_collection_data)
+        self.data_generation_config = docker_service_config_json_parser.DockerServiceConfigJsonParser(data_generation_data)
+        self.kafka_config = docker_service_config_json_parser.DockerServiceConfigJsonParser(kafka_docker_service_data)
+        self.elk_config = docker_service_config_json_parser.DockerServiceConfigJsonParser(elk_docker_service_data)
+        self.postgres_config = docker_service_config_json_parser.DockerServiceConfigJsonParser(postgres_docker_service_data)
+
+        self.data_generation_status: bool = self.windows_actions_handler.check_TCP_port_data_generation_with_retries()
+        self.data_collection_status: bool = self.tcp_helper.check_tcp_socket()
+        self.kafka_docker_service_status: bool = kafka_docker_service_controller.get_kafka_docker_service_status()
+        self.postgres_docker_service_status: bool = postgres_docker_service_controller.get_postgres_docker_service_status()
+        self.elk_docker_service_status: bool = elk_docker_service_controller.get_elk_docker_service_status()
+
+        self.kafka_containers_statuses: Dict[str, bool] = kafka_docker_service_controller.get_kafka_containers_statuses_for_service()
+        self.postgres_containers_statuses: Dict[str, bool] = postgres_docker_service_controller.get_postgres_containers_statuses_for_service()
+        self.elk_containers_statuses: Dict[str, bool] = elk_docker_service_controller.get_elk_containers_statuses_for_service()
+
+        self.button_clicked = self.check_button_click(request)
+        self.click_time = self.timestamp_generator.get_formatted_timestamp()
+
+
+    def build_context(self) -> Dict:
         context_dict = {
-            'data_generation_message': self.get_data_generation_message(data_generation_status),
-            'data_generation_status': data_generation_status,
-            'kafka_container_message': self.get_kafka_container_message(kafka_container_status),
-            'kafka_container_status': self.get_kafka_container_status(kafka_container_status),
-            'data_collection_message': self.get_data_collection_message(data_collection_status),
-            'data_collection_status': self.get_data_collection_status(data_collection_status),
-            'button_clicked': button_clicked,
-            'click_time': click_time,  # to be improved
+
+            'data_generation_message': self.get_docker_service_message(self.data_generation_status, self.data_generation_config),
+            'data_collection_message': self.get_docker_service_message(self.data_collection_status, self.data_collection_config),
+            'kafka_docker_service_message': self.get_docker_service_message(self.kafka_docker_service_status, self.kafka_config),
+            'postgres_docker_service_message': self.get_docker_service_message(self.postgres_docker_service_status, self.postgres_config),
+            'elk_docker_service_message': self.get_docker_service_message(self.elk_docker_service_status, self.elk_config),
+
+            'data_generation_status': self.get_session_value_for_service_status(self.data_generation_status, self.data_generation_config),
+            'data_collection_status': self.get_session_value_for_service_status(self.data_collection_status, self.data_collection_config),
+            'kafka_docker_service_status': self.get_session_value_for_service_status(self.kafka_docker_service_status, self.kafka_config),
+            'postgres_docker_service_status': self.get_session_value_for_service_status(self.postgres_docker_service_status, self.postgres_config),
+            'elk_docker_service_status': self.get_session_value_for_service_status(self.elk_docker_service_status, self.elk_config),
+
+            'kafka_containers_statuses': self.kafka_containers_statuses,
+            'postgres_containers_statuses': self.postgres_containers_statuses,
+            'elk_containers_statuses': self.elk_containers_statuses,
+
+            'button_clicked': self.button_clicked,
+            'click_time': self.click_time,  # to be improved
+
         }
         log_debug(self.build_context, f'context: {str(context_dict)}')
+
         return context_dict
 
-    def get_data_generation_status(self) -> str:  # to improve
-        is_data_generated = self.windows_actions_handler.check_TCP_port_data_generation_with_retries(self.tcp_port)
-        return 'started' if is_data_generated else 'stopped'
+    def get_session_value_for_service_status(self, status: bool, config: DockerServiceConfigJsonParser) -> str:
+        return config.get_session_status_stopped() if not status else config.get_session_status_started()
 
-    def get_kafka_container_status(self, is_kafka_container_running: bool) -> str:
-        return 'started' if is_kafka_container_running == True else 'stopped'
+    def get_docker_service_message(self, status: bool, config: DockerServiceConfigJsonParser) -> str:
+        return config.get_ui_message_down() if not status else config.get_ui_message_up()
 
-    def get_data_collection_status(self, data_collection_status: bool) -> str:
-        return 'started' if data_collection_status == True else 'stopped'
 
     def check_button_click(self, request: HttpRequest) -> bool:
         button_clicked = False
@@ -54,11 +95,8 @@ class ContextBuilder:
                 log_debug(self.check_button_click, f'button_clicked: {str(button_clicked)}')
         return button_clicked
 
-    def get_data_generation_message(self, status: str) -> str:
-        return 'Streaming is ongoing!' if status == 'started' else 'Streaming is NOT started!'
 
-    def get_kafka_container_message(self, kafka_container_status: bool) -> str:
-        return 'Kafka container is NOT running!' if kafka_container_status == False else 'Kafka container is running!'
 
-    def get_data_collection_message(self, is_tcp_opened: bool) -> str:
-        return 'Data Collection is NOT started!' if is_tcp_opened == False else 'Data Collection is started!'
+
+
+

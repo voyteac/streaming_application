@@ -5,8 +5,29 @@
 <style>
     .data-ingress-container{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr; /* 4 columns */
+        grid-template-rows: 1fr 1fr 1fr 1fr; /* 4 rows */
+        gap: 10px; /* Optional gap between grid items */
+    }
+
+    .item1 {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .item2 {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .item3 {
+        grid-column: 3;
+        grid-row: 1 / span 4;
+    }
+
+    .item4 {
+        grid-column: 4;
+        grid-row: 1;
     }
 </style>
 
@@ -14,31 +35,52 @@
 <hr>
 
 <div class="data-ingress-container">
-    <div>
-        <h2>Data Generation</h2>
-    </div>
-    <div>
-        <h2>Data Collection</h2>
-    </div>
-    <div>
-        <h2>Control Kafka Container</h2>
-    </div>
-    <div>
-        <h2>Database handling</h2>
+    <div class="data-generation-container">
+        <div>
+            <h2>Data Generation</h2>
+        </div>
+        <div>
+            <h3>{% include 'data_generation.html' with data_generation_status=data_generation_status %}</h3>
+        </div>
     </div>
 
-    <div>
-        {% include 'data_generation.html' with data_generation_status=data_generation_status %}
+    <div class="data-collection-container">
+        <div>
+            <h2>Data Collection</h2>
+            <hr>
+        </div>
+        <div>
+            <h3>{% include 'data_collection.html' with data_collection_status=data_collection_status %}</h3>
+        </div>
     </div>
-    <div>
-        {% include 'data_collection.html' with data_collection_status=data_collection_status %}
+    <div class="docker-services-container">
+        <div>
+            <h2>Docker Services Control</h2>
+            <hr>
+        </div>
+        <div>
+            <h3>{% include 'postgres_docker_service_control.html' with postgres_docker_service_message=postgres_docker_service_message %}</h3>
+            <hr>
+        </div>
+        <div>
+            <h3>{% include 'kafka_docker_service_control.html' with kafka_docker_service_message=kafka_docker_service_message %}</h3>
+            <hr>
+        </div>
+        <div>
+            <h3>{% include 'elk_docker_service_control.html' with elk_docker_service_message=elk_docker_service_message %}</h3>
+            <hr>
+        </div>
     </div>
-    <div>
-        {% include 'kafka_server_control.html' with kafka_container_status=kafka_container_status %}
-    </div>
-    <div>
-        {% include 'database_handling.html' %}
+    <div class="Database handling">
+        <div>
+            <h3>Database handling</h3>
+            <hr>
+        </div>
+        <div>
+            <h3>{% include 'database_handling.html' %}</h3>
+        </div>
     </div>
 </div>
+
 
 {% endblock content %}

@@ -1,7 +1,7 @@
 import time
 from datetime import datetime
 
-class TimestampGenerator:
+class RealTimestampGenerator:
     def get_timestamp(self) -> float:
         timestamp = time.time()
         return timestamp

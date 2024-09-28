@@ -1,6 +1,7 @@
-import time
+import subprocess
 from pathlib import Path
 import os
+from data_ingress.container_control.postgres_docker_service_controller import postgres_docker_service_controller
 
 from django.conf import settings
 
@@ -74,7 +75,7 @@ DATABASES = {
         'NAME': 'streaming_app',  # The name of the database_handling you created
         'USER': 'myuser',  # The PostgreSQL user you created
         'PASSWORD': 'mypassword',  # The password you set for the user
-        'HOST': 'localhost',  # Replace with WSL IP address
+        'HOST': '127.0.0.1',  # Replace with WSL IP address
         'PORT': '5432',  # Default PostgreSQL port
     }
 }
@@ -123,7 +124,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ########################################## LOGGER SETTINGS ##########################################
-# Define the path to the file you want to clear
+
 streaming_app_log_file_name = "streaming_app.log"
 STREAMING_APP_LOG_FILE = os.path.join(BASE_DIR, streaming_app_log_file_name)
 
@@ -170,39 +171,36 @@ LOGGING = {
     },
 }
 
-########################################## LOGGER SETTINGS ##########################################
-import subprocess
-
-def start_wsl_background():
-    try:
-        subprocess.Popen("wsl", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print("WSL started in the background.")
-        wait_for_postgres()
-    except Exception as e:
-        print(f"Failed to start WSL: {e}")
-
-
-def wait_for_postgres():
-    while True:
-        try:
-            result = subprocess.run(["wsl", "pg_isready"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            if result.returncode == 0:
-                print("PostgreSQL is ready.")
-                break
-            else:
-                print("Waiting for PostgreSQL to start...")
-                time.sleep(2)  # Wait and retry
-        except Exception as e:
-            print(f"Error checking PostgreSQL status: {e}")
-            time.sleep(5)
-
-start_wsl_background()
-
+### ELK ###
 
 ELASTICSEARCH_DSL = {
     'default': {
         'hosts': 'localhost:9200'
     },
 }
+
+
+
+def start_wsl_background():
+    try:
+        subprocess.Popen("wsl", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        print("WSL started in the background.")
+        # wait_for_postgres()
+    except Exception as e:
+        print(f"Failed to start WSL: {e}")
+
+def start_db():
+    is_postgres_docker_service_running: bool = postgres_docker_service_controller.get_postgres_docker_service_status()
+    if not is_postgres_docker_service_running:
+        postgres_docker_service_controller.start_postgres_docker_service()
+
+start_wsl_background()
+start_db()
+
+
+
+
+
+
 
 

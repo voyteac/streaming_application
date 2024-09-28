@@ -6,8 +6,8 @@ from kafka import KafkaProducer
 from kafka import KafkaConsumer
 
 from streaming_app.config import tcp_config
-from data_ingress.kafka_container_control.kafka_producer import CustomKafkaProducer
-from data_ingress.kafka_container_control.kafka_consumer import CustomKafkaConsumer
+from data_ingress.kafka_streaming.kafka_producer import CustomKafkaProducer
+from data_ingress.kafka_streaming.kafka_consumer import CustomKafkaConsumer
 from data_ingress.common.tcp_operations.tcp_helper import TcpHelper
 from data_ingress.common.logging_.to_log_file import log_debug, log_info, log_error_traceback
 from data_ingress.common.threads.threads_helper import ThreadsHelper

@@ -9,8 +9,8 @@ import queue
 from streaming_app.config import kafka_config
 from data_ingress.common.google_protobuf.gpb_event_decomposer import GpbEventDecomposer
 from data_ingress.common.logging_.to_log_file import log_debug, log_info, log_error, log_error_traceback
-from data_ingress.kafka_container_control.kafka_exceptions import (InitializeKafkaProducerFailed,
-                                                                   LoadingMessageToKafkaFailed)
+from data_ingress.kafka_streaming.kafka_exceptions import (InitializeKafkaProducerFailed,
+                                                           LoadingMessageToKafkaFailed)
 
 
 class CustomKafkaProducer:
@@ -54,7 +54,7 @@ class CustomKafkaProducer:
         data: bytes = self.get_data_from_queue(data_queue)
         gpb_message_json: str = self.gbp_event_decomposer.decompose_gpb_event(data)
         kafka_topic = self.determine_topic_based_on_data(data)
-        log_debug(self.load_data_to_kafka, 'Topic: {kafka_topic}')
+        log_debug(self.load_data_to_kafka, f'Topic: {kafka_topic}')
         try:
             kafka_producer.send(kafka_topic, gpb_message_json.encode('utf-8'))
             kafka_producer.flush()

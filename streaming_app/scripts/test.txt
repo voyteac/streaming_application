@@ -1,0 +1,602 @@
+/snap/ubuntu-desktop-installer/1286/usr/share/java/libintl-0.21.jar
+/snap/ubuntu-desktop-installer/1286/usr/share/java/libintl.jar
+/snap/ubuntu-desktop-installer/1286/usr/share/maven-repo/org/gnu/gettext/libintl/0.21/libintl-0.21.jar
+/snap/ubuntu-desktop-installer/1286/usr/share/maven-repo/org/gnu/gettext/libintl/debian/libintl-debian.jar
+/snap/ubuntu-desktop-installer/1276/usr/share/java/libintl-0.21.jar
+/snap/ubuntu-desktop-installer/1276/usr/share/java/libintl.jar
+/snap/ubuntu-desktop-installer/1276/usr/share/maven-repo/org/gnu/gettext/libintl/0.21/libintl-0.21.jar
+/snap/ubuntu-desktop-installer/1276/usr/share/maven-repo/org/gnu/gettext/libintl/debian/libintl-debian.jar
+/usr/share/maven-repo/org/gnu/gettext/libintl/debian/libintl-debian.jar
+/usr/share/maven-repo/org/gnu/gettext/libintl/0.21/libintl-0.21.jar
+/usr/share/java/libintl-0.21.jar
+/usr/share/java/libintl.jar
+/usr/share/logstash/jdk/lib/jrt-fs.jar
+/usr/share/logstash/x-pack/build/libs/logstash-xpack.jar
+/usr/share/logstash/logstash-core/lib/jars/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+/usr/share/logstash/logstash-core/lib/jars/janino-3.1.0.jar
+/usr/share/logstash/logstash-core/lib/jars/javassist-3.30.2-GA.jar
+/usr/share/logstash/logstash-core/lib/jars/slf4j-api-1.7.32.jar
+/usr/share/logstash/logstash-core/lib/jars/failureaccess-1.0.2.jar
+/usr/share/logstash/logstash-core/lib/jars/jackson-dataformat-cbor-2.16.2.jar
+/usr/share/logstash/logstash-core/lib/jars/commons-codec-1.17.0.jar
+/usr/share/logstash/logstash-core/lib/jars/log4j-jcl-2.17.2.jar
+/usr/share/logstash/logstash-core/lib/jars/google-java-format-1.22.0.jar
+/usr/share/logstash/logstash-core/lib/jars/httpcore-4.4.16.jar
+/usr/share/logstash/logstash-core/lib/jars/log4j-api-2.17.2.jar
+/usr/share/logstash/logstash-core/lib/jars/jackson-core-2.16.2.jar
+/usr/share/logstash/logstash-core/lib/jars/checker-qual-3.42.0.jar
+/usr/share/logstash/logstash-core/lib/jars/jvm-options-parser-8.15.1.jar
+/usr/share/logstash/logstash-core/lib/jars/reflections-0.10.2.jar
+/usr/share/logstash/logstash-core/lib/jars/logstash-core.jar
+/usr/share/logstash/logstash-core/lib/jars/commons-logging-1.3.1.jar
+/usr/share/logstash/logstash-core/lib/jars/jackson-annotations-2.16.2.jar
+/usr/share/logstash/logstash-core/lib/jars/log4j-1.2-api-2.17.2.jar
+/usr/share/logstash/logstash-core/lib/jars/jackson-databind-2.16.2.jar
+/usr/share/logstash/logstash-core/lib/jars/error_prone_annotations-2.26.1.jar
+/usr/share/logstash/logstash-core/lib/jars/commons-compiler-3.1.0.jar
+/usr/share/logstash/logstash-core/lib/jars/snakeyaml-2.2.jar
+/usr/share/logstash/logstash-core/lib/jars/httpclient-4.5.14.jar
+/usr/share/logstash/logstash-core/lib/jars/guava-33.1.0-jre.jar
+/usr/share/logstash/logstash-core/lib/jars/log4j-core-2.17.2.jar
+/usr/share/logstash/logstash-core/lib/jars/jsr305-3.0.2.jar
+/usr/share/logstash/logstash-core/lib/jars/log4j-slf4j-impl-2.17.2.jar
+/usr/share/logstash/vendor/jruby/lib/jruby.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/racc/cparse-jruby.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/digest.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/stringio.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/io/wait.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/jopenssl.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/readline.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/nkf.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/jline/jline/2.14.6/jline-2.14.6.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/psych.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/cgi/escape.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/org/bouncycastle/bctls-jdk18on/1.78/bctls-jdk18on-1.78.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/org/bouncycastle/bcutil-jdk18on/1.78/bcutil-jdk18on-1.78.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/org/bouncycastle/bcprov-jdk18on/1.78/bcprov-jdk18on-1.78.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/org/bouncycastle/bcpkix-jdk18on/1.78/bcpkix-jdk18on-1.78.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/org/snakeyaml/snakeyaml-engine/2.7/snakeyaml-engine-2.7.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/json/ext/generator.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/json/ext/parser.jar
+/usr/share/logstash/vendor/jruby/lib/ruby/stdlib/strscan.jar
+/usr/share/logstash/vendor/jruby/samples/relative_require.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/march_hare-4.6.0-java/lib/ext/slf4j-simple.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/march_hare-4.6.0-java/lib/ext/rabbitmq-client.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/march_hare-4.6.0-java/lib/ext/slf4j-api.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-http-3.8.1-java/vendor/jar-dependencies/io/netty/netty-transport/4.1.109.Final/netty-transport-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-http-3.8.1-java/vendor/jar-dependencies/io/netty/netty-codec/4.1.109.Final/netty-codec-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-http-3.8.1-java/vendor/jar-dependencies/io/netty/netty-handler/4.1.109.Final/netty-handler-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-http-3.8.1-java/vendor/jar-dependencies/io/netty/netty-codec-http/4.1.109.Final/netty-codec-http-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-http-3.8.1-java/vendor/jar-dependencies/io/netty/netty-buffer/4.1.109.Final/netty-buffer-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-http-3.8.1-java/vendor/jar-dependencies/io/netty/netty-transport-native-unix-common/4.1.109.Final/netty-transport-native-unix-common-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-http-3.8.1-java/vendor/jar-dependencies/io/netty/netty-common/4.1.109.Final/netty-common-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-http-3.8.1-java/vendor/jar-dependencies/org/logstash/plugins/input/http/logstash-input-http/3.8.1/logstash-input-http-3.8.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nio4r-2.7.3-java/lib/nio4r_ext.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-file-4.4.6/lib/jars/filewatch-1.0.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-filter-useragent-3.3.5-java/vendor/jar-dependencies/org/logstash/filters/logstash-filter-useragent/3.3.5/logstash-filter-useragent-3.3.5.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-aws-7.1.8-java/vendor/jar-dependencies/org/logstash/plugins/integration/aws/logstash-integration-aws/7.1.8/logstash-integration-aws-7.1.8.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-beats-6.8.3-java/vendor/jar-dependencies/io/netty/netty-transport/4.1.109.Final/netty-transport-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-beats-6.8.3-java/vendor/jar-dependencies/io/netty/netty-codec/4.1.109.Final/netty-codec-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-beats-6.8.3-java/vendor/jar-dependencies/io/netty/netty-handler/4.1.109.Final/netty-handler-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-beats-6.8.3-java/vendor/jar-dependencies/io/netty/netty-buffer/4.1.109.Final/netty-buffer-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-beats-6.8.3-java/vendor/jar-dependencies/io/netty/netty-transport-native-unix-common/4.1.109.Final/netty-transport-native-unix-common-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-beats-6.8.3-java/vendor/jar-dependencies/io/netty/netty-common/4.1.109.Final/netty-common-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-beats-6.8.3-java/vendor/jar-dependencies/org/javassist/javassist/3.24.0-GA/javassist-3.24.0-GA.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-beats-6.8.3-java/vendor/jar-dependencies/org/logstash/beats/logstash-input-beats/6.8.3/logstash-input-beats-6.8.3.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-azure_event_hubs-1.4.7/vendor/jar-dependencies/com/microsoft/azure/azure-eventhubs-eph/2.5.2/azure-eventhubs-eph-2.5.2.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-azure_event_hubs-1.4.7/vendor/jar-dependencies/com/microsoft/azure/qpid-proton-j-extensions/1.2.4/qpid-proton-j-extensions-1.2.4.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-azure_event_hubs-1.4.7/vendor/jar-dependencies/com/microsoft/azure/azure-eventhubs/2.3.2/azure-eventhubs-2.3.2.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-azure_event_hubs-1.4.7/vendor/jar-dependencies/com/microsoft/azure/azure-storage/8.6.6/azure-storage-8.6.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-azure_event_hubs-1.4.7/vendor/jar-dependencies/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-azure_event_hubs-1.4.7/vendor/jar-dependencies/org/apache/qpid/proton-j/0.33.9/proton-j-0.33.9.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-filter-geoip-7.3.0-java/vendor/jar-dependencies/com/maxmind/geoip2/geoip2/2.17.0/geoip2-2.17.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-filter-geoip-7.3.0-java/vendor/jar-dependencies/com/maxmind/db/maxmind-db/2.1.0/maxmind-db-2.1.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-filter-geoip-7.3.0-java/vendor/jar-dependencies/org/logstash/filters/logstash-filter-geoip/7.3.0/logstash-filter-geoip-7.3.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/msgpack-1.7.2-java/lib/msgpack/msgpack.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jruby-openssl-0.15.0-java/lib/jopenssl.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jruby-openssl-0.15.0-java/lib/org/bouncycastle/bctls-jdk18on/1.78/bctls-jdk18on-1.78.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jruby-openssl-0.15.0-java/lib/org/bouncycastle/bcutil-jdk18on/1.78/bcutil-jdk18on-1.78.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jruby-openssl-0.15.0-java/lib/org/bouncycastle/bcprov-jdk18on/1.78/bcprov-jdk18on-1.78.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jruby-openssl-0.15.0-java/lib/org/bouncycastle/bcpkix-jdk18on/1.78/bcpkix-jdk18on-1.78.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/hitimes-1.3.1-java/lib/hitimes/hitimes.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jrjackson-0.4.20-java/lib/jrjackson/jars/jrjackson-1.2.37.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jrjackson-0.4.20-java/lib/com/fasterxml/jackson/core/jackson-databind/2.15.4/jackson-databind-2.15.4.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jrjackson-0.4.20-java/lib/com/fasterxml/jackson/core/jackson-annotations/2.15.4/jackson-annotations-2.15.4.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jrjackson-0.4.20-java/lib/com/fasterxml/jackson/core/jackson-core/2.15.4/jackson-core-2.15.4.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jrjackson-0.4.20-java/lib/com/fasterxml/jackson/module/jackson-module-afterburner/2.15.4/jackson-module-afterburner-2.15.4.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/strscan-3.1.0-java/lib/strscan.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/concurrent_ruby.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/jruby-stdin-channel-0.2.0-java/lib/jruby_stdin_channel/jruby_stdin_channel.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/http_parser.rb-0.6.0-java/lib/ruby_http_parser.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/http_parser.rb-0.6.0-java/ext/ruby_http_parser/vendor/http-parser-java/ext/primitives.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/json-2.7.2-java/lib/json/ext/generator.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/json-2.7.2-java/lib/json/ext/parser.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-tcp-6.4.2-java/vendor/jar-dependencies/commons-io/commons-io/2.13.0/commons-io-2.13.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-tcp-6.4.2-java/vendor/jar-dependencies/io/netty/netty-transport/4.1.109.Final/netty-transport-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-tcp-6.4.2-java/vendor/jar-dependencies/io/netty/netty-codec/4.1.109.Final/netty-codec-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-tcp-6.4.2-java/vendor/jar-dependencies/io/netty/netty-handler/4.1.109.Final/netty-handler-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-tcp-6.4.2-java/vendor/jar-dependencies/io/netty/netty-buffer/4.1.109.Final/netty-buffer-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-tcp-6.4.2-java/vendor/jar-dependencies/io/netty/netty-transport-native-unix-common/4.1.109.Final/netty-transport-native-unix-common-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-tcp-6.4.2-java/vendor/jar-dependencies/io/netty/netty-common/4.1.109.Final/netty-common-4.1.109.Final.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-tcp-6.4.2-java/vendor/jar-dependencies/org/logstash/inputs/logstash-input-tcp/6.4.2/logstash-input-tcp-6.4.2.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-input-dead_letter_queue-2.0.0/vendor/jar-dependencies/co/elastic/logstash/input/logstash-input-dead_letter_queue/2.0.0/logstash-input-dead_letter_queue-2.0.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/thread_safe-0.3.6-java/lib/thread_safe/jruby_cache_backend.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/murmurhash3-0.1.6-java/ext/murmurhash3/native.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-filter-elastic_integration-0.1.13-java/vendor/jar-dependencies/co/elastic/logstash-filter-elastic_integration/0.1.13/logstash-filter-elastic_integration-0.1.13.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-filter-date-3.1.15/vendor/jar-dependencies/org/logstash/filters/logstash-filter-date/3.1.6/logstash-filter-date-3.1.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-jdbc-5.4.11/vendor/jar-dependencies/org/apache/derby/derby/10.15.2.1/derby-10.15.2.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-jdbc-5.4.11/vendor/jar-dependencies/org/apache/derby/derbytools/10.15.2.1/derbytools-10.15.2.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-jdbc-5.4.11/vendor/jar-dependencies/org/apache/derby/derbyshared/10.15.2.1/derbyshared-10.15.2.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-jdbc-5.4.11/vendor/jar-dependencies/org/apache/derby/derbyclient/10.15.2.1/derbyclient-10.15.2.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/psych-5.1.2-java/lib/psych.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/psych-5.1.2-java/lib/org/snakeyaml/snakeyaml-engine/2.7/snakeyaml-engine-2.7.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-output-webhdfs-3.1.0-java/vendor/jar-dependencies/org/xerial/snappy/snappy-java/1.1.10.5/snappy-java-1.1.10.5.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/manticore-0.9.1-java/lib/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/manticore-0.9.1-java/lib/commons-codec/commons-codec/1.15/commons-codec-1.15.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/manticore-0.9.1-java/lib/org/apache/httpcomponents/httpmime/4.5.13/httpmime-4.5.13.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/manticore-0.9.1-java/lib/org/apache/httpcomponents/httpcore/4.4.14/httpcore-4.4.14.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/manticore-0.9.1-java/lib/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/manticore-0.9.1-java/lib/org/manticore/manticore-ext.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/puma-6.4.2-java/lib/puma/puma_http11.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-filter-dissect-1.2.5/vendor/jars/org/logstash/dissect/jruby-dissect-library/1.2.5/jruby-dissect-library-1.2.5.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/racc-1.8.1-java/lib/java/racc/cparse-jruby.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/nokogiri.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/jruby/net/sf/saxon/Saxon-HE/9.6.0-4/Saxon-HE-9.6.0-4.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/jruby/net/sourceforge/htmlunit/neko-htmlunit/2.63.0/neko-htmlunit-2.63.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/jruby/isorelax/isorelax/20030108/isorelax-20030108.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/jruby/xerces/xercesImpl/2.12.2/xercesImpl-2.12.2.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/jruby/xalan/serializer/2.7.3/serializer-2.7.3.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/jruby/xalan/xalan/2.7.3/xalan-2.7.3.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/jruby/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/jruby/org/nokogiri/nekodtd/0.1.11.noko2/nekodtd-0.1.11.noko2.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/nokogiri-1.16.7-java/lib/nokogiri/jruby/nu/validator/jing/20200702VNU/jing-20200702VNU.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/atomic-1.1.101-java/lib/atomic_reference.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-kafka-11.5.1-java/vendor/jar-dependencies/io/confluent/kafka-avro-serializer/7.4.0/kafka-avro-serializer-7.4.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-kafka-11.5.1-java/vendor/jar-dependencies/io/confluent/kafka-schema-serializer/7.4.0/kafka-schema-serializer-7.4.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-kafka-11.5.1-java/vendor/jar-dependencies/io/confluent/kafka-schema-registry-client/7.4.0/kafka-schema-registry-client-7.4.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-kafka-11.5.1-java/vendor/jar-dependencies/com/github/luben/zstd-jni/1.5.5-4/zstd-jni-1.5.5-4.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-kafka-11.5.1-java/vendor/jar-dependencies/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-kafka-11.5.1-java/vendor/jar-dependencies/org/apache/avro/avro/1.11.3/avro-1.11.3.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-kafka-11.5.1-java/vendor/jar-dependencies/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-kafka-11.5.1-java/vendor/jar-dependencies/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-kafka-11.5.1-java/vendor/jar-dependencies/org/xerial/snappy/snappy-java/1.1.10.5/snappy-java-1.1.10.5.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/boot/plexus-classworlds-2.7.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-settings-builder-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/commons-lang3-3.12.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/plexus-cipher-2.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-core-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/guice-5.1.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-named-locks-1.9.18.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-transport-file-1.9.18.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/guava-32.0.1-jre.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-provider-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/javax.annotation-api-1.3.2.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/plexus-sec-dispatcher-2.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/wagon-http-3.5.3.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-embedder-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/httpcore-4.4.16.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/javax.inject-1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-shared-utils-3.3.4.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-model-builder-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-builder-support-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-compat-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-settings-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/wagon-http-shared-3.5.3.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-connector-basic-1.9.18.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/jansi-2.4.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/org.eclipse.sisu.inject-0.9.0.M2.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/commons-codec-1.16.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-plugin-api-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/wagon-provider-api-3.5.3.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/aopalliance-1.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/commons-cli-1.5.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-impl-1.9.18.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/wagon-file-3.5.3.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-model-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/plexus-interpolation-1.26.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/slf4j-api-1.7.36.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/httpclient-4.5.14.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-transport-wagon-1.9.18.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-artifact-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-repository-metadata-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/failureaccess-1.0.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-transport-http-1.9.18.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/plexus-component-annotations-2.1.0.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/jcl-over-slf4j-1.7.36.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/org.eclipse.sisu.plexus-0.9.0.M2.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-slf4j-provider-3.9.6.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-util-1.9.18.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/plexus-utils-3.5.1.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-spi-1.9.18.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/ruby-maven-libs-3.9.6.1/maven-home/lib/maven-resolver-api-1.9.18.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-snmp-4.0.4-java/vendor/jar-dependencies/org/logstash/integrations/plugin/4.0.4/plugin-4.0.4.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-snmp-4.0.4-java/vendor/jar-dependencies/org/snakeyaml/snakeyaml-engine/2.7/snakeyaml-engine-2.7.jar
+/usr/share/logstash/vendor/bundle/jruby/3.1.0/gems/logstash-integration-snmp-4.0.4-java/vendor/jar-dependencies/org/snmp4j/snmp4j/3.8.0/snmp4j-3.8.0.jar
+/usr/share/logstash/tools/ingest-converter/build/libs/ingest-converter.jar
+/usr/share/apport/apport.jar
+/usr/share/apport/testsuite/crash.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/activation-1.1.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/aopalliance-repackaged-2.6.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/argparse4j-0.7.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/audience-annotations-0.12.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/caffeine-2.9.3.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/checker-qual-3.19.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/commons-beanutils-1.9.4.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/commons-cli-1.4.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/commons-collections-3.2.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/commons-digester-2.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/commons-io-2.11.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/commons-lang3-3.12.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/commons-logging-1.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/commons-validator-1.7.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/connect-api-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/connect-basic-auth-extension-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/connect-file-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/connect-json-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/connect-mirror-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/connect-mirror-client-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/connect-runtime-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/connect-transforms-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/error_prone_annotations-2.10.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/hk2-api-2.6.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/hk2-locator-2.6.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/hk2-utils-2.6.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-annotations-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-core-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-databind-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-dataformat-csv-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-datatype-jdk8-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-jaxrs-base-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-jaxrs-json-provider-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-module-afterburner-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-module-jaxb-annotations-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jackson-module-scala_2.12-2.16.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jakarta.activation-api-1.2.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jakarta.annotation-api-1.3.5.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jakarta.inject-2.6.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jakarta.validation-api-2.0.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jakarta.ws.rs-api-2.1.6.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jakarta.xml.bind-api-2.3.3.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/javassist-3.29.2-GA.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/javax.activation-api-1.2.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/javax.annotation-api-1.3.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/javax.servlet-api-3.1.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/javax.ws.rs-api-2.1.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jaxb-api-2.3.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jersey-client-2.39.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jersey-common-2.39.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jersey-container-servlet-2.39.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jersey-container-servlet-core-2.39.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jersey-hk2-2.39.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jersey-server-2.39.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-client-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-continuation-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-http-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-io-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-security-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-server-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-servlet-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-servlets-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-util-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jetty-util-ajax-9.4.54.v20240208.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jline-3.25.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jopt-simple-5.0.4.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jose4j-0.9.4.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/jsr305-3.0.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-clients-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-group-coordinator-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-group-coordinator-api-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-log4j-appender-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-metadata-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-raft-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-server-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-server-common-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-shell-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-storage-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-storage-api-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-streams-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-streams-examples-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-streams-scala_2.12-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-streams-test-utils-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-tools-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-tools-api-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka-transaction-coordinator-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/kafka_2.12-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/lz4-java-1.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/maven-artifact-3.9.6.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/metrics-core-2.2.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/metrics-core-4.1.12.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/netty-buffer-4.1.110.Final.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/netty-codec-4.1.110.Final.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/netty-common-4.1.110.Final.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/netty-handler-4.1.110.Final.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/netty-resolver-4.1.110.Final.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/netty-transport-4.1.110.Final.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/netty-transport-classes-epoll-4.1.110.Final.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/netty-transport-native-epoll-4.1.110.Final.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/netty-transport-native-unix-common-4.1.110.Final.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/opentelemetry-proto-1.0.0-alpha.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/osgi-resource-locator-1.0.3.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/paranamer-2.8.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/pcollections-4.0.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/plexus-utils-3.5.1.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/protobuf-java-3.23.4.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/reflections-0.10.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/reload4j-1.2.25.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/rocksdbjni-7.9.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/scala-collection-compat_2.12-2.10.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/scala-java8-compat_2.12-1.0.2.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/scala-library-2.12.19.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/scala-logging_2.12-3.9.4.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/scala-reflect-2.12.19.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/slf4j-api-1.7.36.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/slf4j-reload4j-1.7.36.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/snappy-java-1.1.10.5.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/swagger-annotations-2.2.8.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/trogdor-3.8.0.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/zookeeper-3.8.4.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/zookeeper-jute-3.8.4.jar
+/mnt/c/kafka/kafka_2.12-3.8.0/libs/zstd-jni-1.5.6-3.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/jbr/lib/jrt-fs.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/annotations-java5.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/app-client.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/app.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/bouncy-castle.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/byte-buddy-agent.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/cds/classesLogAgent.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/error-prone-annotations.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/external-system-rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/externalProcess-rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/forms_rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/groovy.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/grpc.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/intellij-coverage-agent-1.0.723.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/intellij-test-discovery.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/jetbrains-annotations.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/jps-model.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/jsch-agent.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/junit4.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/lib-client.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/lib.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/modules.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/platform-loader.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/protobuf.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/rd.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/stats.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/testFramework.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/util-8.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/util.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/lib/util_rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/color-scheme-github/lib/color-scheme-github.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/color-scheme-monokai/lib/color-scheme-monokai.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/color-scheme-twilight/lib/color-scheme-twilight.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/color-scheme-warmNeon/lib/color-scheme-warmNeon.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/completionMlRanking/lib/completionMlRanking.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/configurationScript/lib/configurationScript.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/copyright/lib/copyright.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/bouncy-castle-pgp.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/cwm-common.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/cwm-host-unattended.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/cwm-host.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/cwm-lobby-common.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/cwm-plugin-terminal.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/cwm-plugin.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/cwm-unattended-common.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/ice4j.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/java-websocket.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/jitsi-utils.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/jnaerator-runtime.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/jstun.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/kotlinx-serialization-protobuf.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/projector-client-common.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/projector-client-swing.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/quiche-jna-stubs.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin/lib/tls-channel.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin-projector/lib/cwm-plugin-projector.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/cwm-plugin-projector/lib/projector/projector.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/dev/lib/dev.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/editorconfig/lib/editorconfig.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/featuresTrainer/lib/featuresTrainer.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/grazie/lib/grazie.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/indexing-shared/lib/indexing-shared.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/markdown/lib/markdown.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/marketplace/lib/boot/marketplace-bootstrap.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/marketplace/lib/boot/marketplace-impl.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/marketplace/lib/marketplace.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/packageChecker/lib/packageChecker.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/performanceTesting/lib/performanceTesting.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/performanceTesting-async/lib/performanceTesting-async.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/platform-images/lib/platform-images.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/platform-langInjection/lib/IntelliLang.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/platform-langInjection/lib/java-langInjection-jps.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/platform-langInjection/lib/platform-langInjection.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/properties/lib/properties.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/pycharm-community-customization/lib/pycharm-community-customization.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/pycharm-community-sharedIndexes-bundled/lib/pycharm-community-sharedIndexes-bundled.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/python-ce/lib/python-ce.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/python-sharedIndexes-downloadable/lib/python-sharedIndexes-downloadable.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/qodana/lib/qodana.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/qt-plugin/lib/qt-plugin.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/reStructuredText/lib/reStructuredText.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/searchEverywhereMl/lib/searchEverywhereMl.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/settingsSync/lib/settingsSync.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/sh/lib/sh.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/space/lib/space-java-jps.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/space/lib/space.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/tasks/lib/tasks-core.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/terminal/lib/terminal.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/textmate/lib/textmate.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/toml/lib/toml.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/vcs-git/lib/git4idea-rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/vcs-git/lib/vcs-git.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/vcs-github/lib/vcs-github.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/vcs-gitlab/lib/vcs-gitlab.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/vcs-hg/lib/vcs-hg.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/vcs-svn/lib/vcs-svn.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2023.2.4/plugins/yaml/lib/yaml.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/jbr/lib/jrt-fs.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/annotations.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/app-client.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/app.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/bouncy-castle.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/cds/classesLogAgent.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/external-system-rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/externalProcess-rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/forms_rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/frontend/frontend-customization.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/frontend/frontend.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/groovy.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/jps-model.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/jsch-agent.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/junit4.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/lib-client.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/lib.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.ide.startup.importSettings.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.libraries.ktor.client.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.libraries.microba.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.clouds.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.collaborationTools.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.execution.dashboard.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.execution.serviceView.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.ide.newUiOnboarding.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.images.backend.svg.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.images.copyright.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.kernel.backend.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.kernel.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.lvcs.impl.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.ml.embeddings.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.navbar.backend.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.navbar.frontend.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.navbar.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.navbar.monolith.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.settings.local.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.smRunner.vcs.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.vcs.dvcs.impl.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.vcs.impl.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.platform.vcs.log.impl.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/modules/intellij.smart.update.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/nio-fs.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/opentelemetry.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/platform-loader.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/protobuf.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/rd.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/stats.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/testFramework.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/trove.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/util-8.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/util.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/lib/util_rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/modules/module-descriptors.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/color-scheme-github/lib/color-scheme-github.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/color-scheme-monokai/lib/color-scheme-monokai.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/color-scheme-twilight/lib/color-scheme-twilight.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/color-scheme-warmNeon/lib/color-scheme-warmNeon.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/completionMlRanking/lib/completionMlRanking.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/configurationScript/lib/configurationScript.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/copyright/lib/copyright.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/bouncy-castle-pgp.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/client/cwm-guest-driver.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/client/cwm-guest-markdown.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/client/cwm-guest-notebooks.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/client/cwm-guest-performanceTesting.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/client/cwm-guest-terminal.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/client/cwm-guest.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/client/platform-ssh.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/client/rd-client.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-common.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-host-unattended.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-host.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-model.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-plugin-android.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-plugin-backend.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-plugin-common.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-plugin-java.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-plugin-notebooks.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-plugin.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/cwm-unattended-common.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/grpc-netty-shaded.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/ice4j.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/java-websocket.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/jitsi-utils.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/jnaerator-runtime.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/jstun.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/modules/intellij.platform.execution.frontend.split.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/modules/intellij.platform.kernel.backend.split.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/modules/intellij.platform.kernel.split.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/modules/intellij.platform.navbar.backend.split.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/modules/intellij.terminal.backend.split.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/quiche-jna-stubs.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/rd.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/cwm-plugin/lib/tls-channel.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/dev/lib/dev.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/editorconfig/lib/editorconfig.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/featuresTrainer/lib/featuresTrainer.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/grazie/lib/grazie.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/indexing-shared/lib/indexing-shared.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/llmInstaller/lib/llmInstaller.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/localization-ja/lib/localization-ja.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/localization-ko/lib/localization-ko.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/localization-zh/lib/localization-zh.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/markdown/lib/markdown.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/marketplace/lib/boot/marketplace-bootstrap.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/marketplace/lib/boot/marketplace-impl.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/marketplace/lib/marketplace.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/marketplaceMl/lib/marketplaceMl.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/ml-inline-completion/lib/ml-inline-completion.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/packageChecker/lib/packageChecker.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/performanceTesting/lib/performanceTesting.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/performanceTesting-async/lib/performanceTesting-async.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/platform-ide-provisioner/lib/platform-ide-provisioner.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/platform-images/lib/platform-images.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/platform-langInjection/lib/java-langInjection-jps.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/platform-langInjection/lib/platform-langInjection.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/properties/lib/properties.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/pycharm-community-customization/lib/pycharm-community-customization.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/pycharm-community-sharedIndexes-bundled/lib/pycharm-community-sharedIndexes-bundled.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/python-ce/lib/client/python-frontend.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/python-ce/lib/python-ce.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/python-ce/lib/python-common.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/qodana/lib/qodana.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/qt-plugin/lib/qt-plugin.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/restructuredtext/lib/restructuredtext.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/searchEverywhereMl/lib/modules/intellij.searchEverywhereMl.ranking.core.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/searchEverywhereMl/lib/searchEverywhereMl.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/settingsSync/lib/settingsSync.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/sh/lib/sh.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/tasks/lib/tasks-core.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/terminal/lib/terminal.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/textmate/lib/textmate.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/toml/lib/toml.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/vcs-git/lib/git4idea-rt.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/vcs-git/lib/vcs-git.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/vcs-github/lib/vcs-github.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/vcs-gitlab/lib/vcs-gitlab.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/vcs-hg/lib/vcs-hg.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/vcs-svn/lib/vcs-svn.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/yaml/lib/yaml-editing.jar
+/mnt/c/Program Files/JetBrains/PyCharm Community Edition 2024.2.2/plugins/yaml/lib/yaml.jar
+/mnt/c/Program Files/yWorks/yEd/.install4j/i4jruntime.jar
+/mnt/c/Program Files/yWorks/yEd/.install4j/user/flatlaf.jar
+/mnt/c/Program Files/yWorks/yEd/.install4j/user.jar
+/mnt/c/Program Files/yWorks/yEd/jre/lib/javafx-swt.jar
+/mnt/c/Program Files/yWorks/yEd/jre/lib/jrt-fs.jar
+/mnt/c/Program Files/yWorks/yEd/lib/common-image.jar
+/mnt/c/Program Files/yWorks/yEd/lib/common-io.jar
+/mnt/c/Program Files/yWorks/yEd/lib/common-lang.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-bmp.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-core.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-hdr.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-icns.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-iff.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-jpeg.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-metadata.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-pcx.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-pict.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-psd.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-sgi.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-tga.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-thumbsdb.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-tiff.jar
+/mnt/c/Program Files/yWorks/yEd/lib/imageio-webp.jar
+/mnt/c/Program Files/yWorks/yEd/lib/vectorgraphics.jar
+/mnt/c/Program Files/yWorks/yEd/yed.jar

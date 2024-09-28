@@ -1,11 +1,11 @@
 import pytest
 from datetime import datetime
-from data_ingress.common.dummy_data.timestamp_generator import TimestampGenerator
+from data_ingress.common.dummy_data.timestamp_generator import RealTimestampGenerator
 
 
 @pytest.mark.django_db
 def test_get_formatted_timestamp(monkeypatch):
-    time_gen = TimestampGenerator()
+    time_gen = RealTimestampGenerator()
     timestamp = 1630454400
     monkeypatch.setattr('time.time', lambda: timestamp)
 

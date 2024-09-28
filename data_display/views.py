@@ -1,12 +1,20 @@
-from django.shortcuts import render
 from typing import List, Dict, Union
+
+from django.shortcuts import render
+
 from data_ingress.models import DataBaseLoader
 
 
 def display(request):
+    number_of_last_row_to_display: int = 20
+    number_of_rows_total: int = len(DataBaseLoader.objects.all())
+    header_string:str = get_header_string(number_of_last_row_to_display, number_of_rows_total)
     column_headers: List[str] = get_column_name_from_db()
-    table_content: List[Dict[str, Union[str, int, float]]] = get_table_content_from_db()
+
+    table_content: List[Dict[str, Union[str, int, float]]] = get_table_content_from_db(number_of_last_row_to_display)
+
     context = {
+        'header_string': header_string,
         'table_content': table_content,
         'column_headers': column_headers,
         'number_columns': len(column_headers)
@@ -14,7 +22,7 @@ def display(request):
     return render(request, "data_display_main.html", context)
 
 
-def get_table_content_from_db() -> List[Dict[str, Union[str, int, float]]]:
+def get_table_content_from_db(number_of_last_row_to_display: int) -> List[Dict[str, Union[str, int, float]]]:
     all_records = DataBaseLoader.objects.all()
     table_content = [
         {
@@ -37,12 +45,22 @@ def get_table_content_from_db() -> List[Dict[str, Union[str, int, float]]]:
             'metric_11': record.metric_11,
         }
         for record in all_records]
-    return table_content
+    return table_content[-number_of_last_row_to_display:]
+
 
 def get_column_name_from_db() -> List[str]:
     column_headers: List[str] = [field.name for field in DataBaseLoader._meta.get_fields()]
     return convert_column_headers_nice_format(column_headers)
 
+
 def convert_column_headers_nice_format(column_headers: List[str]) -> List[str]:
     return [' '.join(word.capitalize() for word in column.split('_')) for column in column_headers]
 
+
+def get_header_string(number_of_last_row_to_display: int, number_of_rows_total: int) -> str:
+    if number_of_rows_total == 0:
+        return f' no data to be displayed'
+    elif number_of_last_row_to_display > number_of_rows_total:
+        return f' last {number_of_last_row_to_display} rows'
+    else:
+        return f' last {number_of_last_row_to_display} rows from {number_of_rows_total}'

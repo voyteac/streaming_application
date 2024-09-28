@@ -35,7 +35,7 @@ def test_get(monkeypatch):
                 'data_generation_message': 'Streaming is NOT started!',
                 'data_generation_status': data_generation_status,
                 'kafka_container_message': 'Kafka container is running!',
-                'kafka_container_status': data_collection_status,
+                'kafka_service_status': data_collection_status,
                 'data_collection_message': 'Data Collection is NOT started!',
                 'data_collection_status': kafka_container_status,
                 'button_click': button_clicked

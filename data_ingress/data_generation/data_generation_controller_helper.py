@@ -21,7 +21,7 @@ class DataGenerationControllerHelper:
         self.client_host: str = tcp_config.client_host
         self.port: int = tcp_config.port
         self.default_number_of_tcp_clients: int = tcp_config.default_number_of_tcp_clients
-        self.data_generation_pause_period: int = tcp_config.data_generation_pause_period
+        self.data_generation_pause_period: float = tcp_config.data_generation_pause_period
         self.retry_delay: int = tcp_config.retry_delay
 
         self.tcp_helper = TcpHelper()

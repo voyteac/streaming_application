@@ -27,11 +27,13 @@ def save_kafka_message_to_database(kafka_msg: ConsumerRecord) -> None:
 
     database_message: DataBaseLoader = get_database_message_from_kafka_message(kafka_msg)
     try:
+        log_debug(save_kafka_message_to_database, "Saving a message to database")
         database_message.save()
     except Exception as e:
         log_error_traceback(save_kafka_message_to_database)
         raise SavingToDatabaseFailed(str(e), save_kafka_message_to_database) from e
     else:
+        log_debug(save_kafka_message_to_database, "Saving a message to database - Done")
         log_info(save_kafka_message_to_database, 'Loading message to database_handling - Done')
 
 

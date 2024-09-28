@@ -4,19 +4,19 @@ package example;
 
 message EventNotification {
 	int32 unique_client_id = 1;
-	float timestamp = 2;
+	double timestamp = 2;
 	int32 message_number = 3;
 	string client_name = 4;
-    float metric_0 = 5;
-	float metric_1 = 6;
-	float metric_2 = 7;
-	float metric_3 = 8;
-	float metric_4 = 9;
-	float metric_5 = 10;
-	float metric_6 = 11;
-	float metric_7 = 12;
-	float metric_8 = 13;
-	float metric_9 = 14;
-	float metric_10 = 15;
-	float metric_11 = 16;
+    double metric_0 = 5;
+	double metric_1 = 6;
+	double metric_2 = 7;
+	double metric_3 = 8;
+	double metric_4 = 9;
+	double metric_5 = 10;
+	double metric_6 = 11;
+	double metric_7 = 12;
+	double metric_8 = 13;
+	double metric_9 = 14;
+	double metric_10 = 15;
+	double metric_11 = 16;
 }

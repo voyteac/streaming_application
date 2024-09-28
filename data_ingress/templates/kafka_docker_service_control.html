@@ -1,0 +1,18 @@
+{% if kafka_docker_service_status == 'started' %}
+    <form method="get" action="{% url 'stop-kafka-docker-service' %}">
+        <button type="submit" style="color: red;">Stop Kafka Docker Service</button>
+    </form>
+{% elif kafka_docker_service_status == 'stopped' %}
+    <form method="get" action="{% url 'start-kafka-docker-service' %}">
+        <button type="submit" style="color: red;">Start Kafka Docker Service</button>
+    </form>
+{% else %}
+    <p>Error occurred, contact admin: {{ kafka_docker_service_message }} </p>
+{% endif %}
+
+{% if kafka_docker_service_message %}
+    <p>{{ kafka_docker_service_message }}</p>
+{% endif %}
+{% if kafka_containers_statuses %}
+    <p>{{ kafka_containers_statuses }}</p>
+{% endif %}

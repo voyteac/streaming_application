@@ -1,8 +1,13 @@
 import socket
+from streaming_app.config import tcp_config
 
 from data_ingress.common.logging_.to_log_file import log_debug, log_error
 
 class TcpHelper:
+    def __init__(self):
+        self.server_host: str = tcp_config.server_host
+        self.server_port: int = tcp_config.port
+
 
     def create_tcp_socket(self) -> socket.socket:
         tcp_socket: socket.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -45,11 +50,11 @@ class TcpHelper:
         return tcp_connection
 
 
-    def check_tcp_socket(self, host_: str, port_: int, timeout: int = 1) -> bool:
+    def check_tcp_socket(self, timeout: int = 1) -> bool:
         socket_to_check = self.create_tcp_socket()
         socket_to_check.settimeout(timeout)
         try:
-            socket_to_check.connect((host_, port_))
+            socket_to_check.connect((self.server_host, self.server_port))
             return True
         except (socket.timeout, socket.error):
             return False

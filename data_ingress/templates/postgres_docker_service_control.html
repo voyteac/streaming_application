@@ -1,0 +1,6 @@
+{% if postgres_docker_service_message %}
+    <p>{{ postgres_docker_service_message }}</p>
+{% endif %}
+{% if postgres_containers_statuses %}
+    <p>{{ postgres_containers_statuses }}</p>
+{% endif %}

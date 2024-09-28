@@ -1,0 +1,18 @@
+{% if elk_docker_service_status == 'started' %}
+    <form method="get" action="{% url 'stop-elk-docker-service' %}">
+        <button type="submit" style="color: red;">Stop ELK Docker Service</button>
+    </form>
+{% elif elk_docker_service_status == 'stopped' %}
+    <form method="get" action="{% url 'start-elk-docker-service' %}">
+        <button type="submit" style="color: red;">Start ELK Docker Service</button>
+    </form>
+{% else %}
+    <p>Error occurred, contact admin: {{ elk_docker_service_message }} </p>
+{% endif %}
+
+{% if elk_docker_service_message %}
+    <p>{{ elk_docker_service_message }}</p>
+{% endif %}
+{% if elk_containers_statuses %}
+    <p>{{ elk_containers_statuses }}</p>
+{% endif %}
