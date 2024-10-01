@@ -117,8 +117,12 @@ data_collection: Dict [str, Any] = {
         'status_stopped': 'stopped'
     },
     'ui_message': {
+        'storage_key': 'data_collection_status',
         'service_up': 'Data Collection is started!',
         'service_down': 'Data Collection is NOT started!'
+    },
+    'redirect': {
+        'pattern': 'data-ingress'
     }
 }
 
@@ -128,7 +132,11 @@ data_generation: Dict [str, Any] = {
         'status_stopped': 'stopped'
     },
     'ui_message': {
+        'storage_key': 'data_generation_status',
         'service_up': 'Streaming is started!',
         'service_down': 'Streaming is NOT started!'
+    },
+    'redirect': {
+        'pattern': 'data-ingress'
     }
 }

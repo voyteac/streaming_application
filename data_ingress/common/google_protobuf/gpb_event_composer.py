@@ -4,6 +4,7 @@ from data_ingress.common.google_protobuf.schema import event_notification_pb2 as
 from data_ingress.common.dummy_data.random_data_generator import RandomDataGenerator
 from data_ingress.common.dummy_data.timestamp_generator import RealTimestampGenerator
 from data_ingress.common.logging_.to_log_file import log_debug, log_error
+from data_ingress.common.dummy_data.metric_value_generator import MetricValuesGenerator
 
 class ErrorDuringGpbEventCompose(Exception):
     def __init__(self, message):
@@ -11,15 +12,24 @@ class ErrorDuringGpbEventCompose(Exception):
         self.message = message
 
 class GpbEventComposer:
-    def __init__(self):
+    def __init__(self, number_of_generators):
         self.random_data_generator = RandomDataGenerator()
         self.timestamp_utility = RealTimestampGenerator()
+        self.metric_values_generator = MetricValuesGenerator()
+        number_of_generators: int = number_of_generators
+        self.unique_client_id_list: List[int] = self.random_data_generator.get_unique_client_id_list(number_of_generators)
+        self.client_name_list: List[str] = self.random_data_generator.get_client_name_id(number_of_generators)
 
-    def compose_gpb_event(self, unique_client_id: int, message_number: int, client_name: str) -> bytes:
-        log_debug(self.compose_gpb_event, 'composing a serialized google protobuf event notification')
 
+    def compose_event(self, generator_id: int, message_number: int) -> bytes:
+        log_debug(self.compose_event, 'composing a serialized google protobuf event notification')
+
+
+        unique_client_id = self.unique_client_id_list[generator_id]
+        client_name = self.client_name_list[generator_id]
         timestamp: float = self.timestamp_utility.get_timestamp()
-        metric_values: List[float] = self.get_metrics_values()
+        metric_values: List[float] = self.metric_values_generator.get_metrics_values()
+
 
         try:
             gpb_event = event_scheme.EventNotification(
@@ -42,30 +52,13 @@ class GpbEventComposer:
             )
             serialized_to_string_gpb_event: bytes = gpb_event.SerializeToString()
         except ErrorDuringGpbEventCompose as e:
-            log_error(self.compose_gpb_event, f'Compose_serialized_gpb_event failed: {e}')
+            log_error(self.compose_event, f'Compose_serialized_gpb_event failed: {e}')
         else:
             self.log_message_content(unique_client_id, message_number, client_name, timestamp, metric_values)
-            log_debug(self.compose_gpb_event, f'Serialized_to_string_gpb_event: {serialized_to_string_gpb_event}')
+            log_debug(self.compose_event, f'Serialized_to_string_gpb_event: {serialized_to_string_gpb_event}')
             return serialized_to_string_gpb_event
 
 
-
-    def get_metrics_values(self)-> List[float]:
-        metric_values: List[float] = [
-            self.random_data_generator.get_metric_value(0, 1, 2),  # metric_0
-            self.random_data_generator.get_metric_value(-1, 1, 4),  # metric_1
-            self.random_data_generator.get_metric_value(-10, 10, 3),  # metric_2
-            self.random_data_generator.get_metric_value(-100, 100, 1),  # metric_3
-            self.random_data_generator.get_metric_value(-1000, 1000, 0),  # metric_4
-            self.random_data_generator.get_metric_value(-100, 0, 1),  # metric_5
-            self.random_data_generator.get_metric_value(-1000, -500, 0),  # metric_6
-            self.random_data_generator.get_metric_value(0, 1000, 0),  # metric_7
-            self.random_data_generator.get_metric_value(0, 100, 2),  # metric_8
-            self.random_data_generator.get_metric_value(0, 10000, 0),  # metric_9
-            self.random_data_generator.get_metric_value(0, 100000, 0),  # metric_10
-            self.random_data_generator.get_metric_value(-100000, 100000, 0)  # metric_11
-        ]
-        return metric_values
 
     def log_message_content(self, unique_client_id: int, message_number: int, client_name: str, timestamp: float,
                             metric_values: List[float]) -> None:

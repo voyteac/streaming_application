@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     
     'data_ingress.apps.DataIngressConfig',
     'data_display.apps.DataDisplayConfig',
+    'data_analysis.apps.DataAnalysisConfig',
     'rest_framework'
 ]
 

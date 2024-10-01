@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import DataBaseLoader
+from .models import MetricsDataModelsLoader
 
-admin.site.register(DataBaseLoader)
+admin.site.register(MetricsDataModelsLoader)
 
 
 

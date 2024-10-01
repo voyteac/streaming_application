@@ -1,14 +1,15 @@
 from typing import List, Dict, Union
 
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
-from data_ingress.models import DataBaseLoader
+from data_ingress.models import MetricsDataModelsLoader
 
 
-def display(request):
+def display(request: HttpRequest) -> HttpResponse:
     number_of_last_row_to_display: int = 20
-    number_of_rows_total: int = len(DataBaseLoader.objects.all())
-    header_string:str = get_header_string(number_of_last_row_to_display, number_of_rows_total)
+    number_of_rows_total: int = len(MetricsDataModelsLoader.objects.all())
+    header_string: str = get_header_string(number_of_last_row_to_display, number_of_rows_total)
     column_headers: List[str] = get_column_name_from_db()
 
     table_content: List[Dict[str, Union[str, int, float]]] = get_table_content_from_db(number_of_last_row_to_display)
@@ -23,12 +24,13 @@ def display(request):
 
 
 def get_table_content_from_db(number_of_last_row_to_display: int) -> List[Dict[str, Union[str, int, float]]]:
-    all_records = DataBaseLoader.objects.all()
+    all_records = MetricsDataModelsLoader.objects.all()
     table_content = [
         {
             'internal_unique_client_id': record.internal_unique_client_id,
             'unique_client_id': record.unique_client_id,
-            'timestamp': record.timestamp,
+            'date': record.date,
+            'time': record.time,
             'message_number': record.message_number,
             'client_name': record.client_name,
             'metric_0': record.metric_0,
@@ -49,7 +51,7 @@ def get_table_content_from_db(number_of_last_row_to_display: int) -> List[Dict[s
 
 
 def get_column_name_from_db() -> List[str]:
-    column_headers: List[str] = [field.name for field in DataBaseLoader._meta.get_fields()]
+    column_headers: List[str] = [field.name for field in MetricsDataModelsLoader._meta.get_fields()]
     return convert_column_headers_nice_format(column_headers)
 
 

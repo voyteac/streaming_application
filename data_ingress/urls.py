@@ -15,5 +15,7 @@ urlpatterns = [
     path('stop_elk_docker_service/', elk_docker_service_controller.stop_elk_docker_service, name='stop-elk-docker-service'),
     path('start_data_generation/', data_generation_controller.start_data_generation, name='start-data-generation'),
     path('stop_data_generation/', data_generation_controller.stop_data_generation, name='stop-data-generation'),
-    path('clear_table/', views.DataIngressClearView.as_view(), name='clear-table'),
+    path('clear_table_all/', views.DataIngressClearView.as_view(), name='clear-table-all'),
+    path('clear_table_metrics/', views.DataIngressClearView.as_view(), name='clear-table-metrics'),
+
 ]

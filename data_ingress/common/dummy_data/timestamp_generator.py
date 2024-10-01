@@ -8,5 +8,13 @@ class RealTimestampGenerator:
 
     def get_formatted_timestamp(self) -> str:
         timestamp: float = self.get_timestamp()
-        current_time: str = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
-        return current_time
+        return self.format_given_timestamp(timestamp)
+
+    def format_given_timestamp(self, timestamp: float) -> str:
+        return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M:%S')
+
+    def get_date_component_from_timestamp(self, timestamp: float) -> str:
+        return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d')
+
+    def get_time_component_from_timestamp(self, timestamp: float) -> str:
+        return datetime.fromtimestamp(timestamp).strftime('%H:%M:%S')

@@ -1,12 +1,8 @@
 from django.db import models
+from common.database_models.common_data_model import CommonDataModels
+from streaming_app.config import database
 
-
-class DataBaseLoader(models.Model):
-    internal_unique_client_id = models.CharField(primary_key=True, max_length=255, default=None)
-    unique_client_id = models.IntegerField(null=True, blank=True)
-    timestamp = models.FloatField(null=True, blank=True)
-    message_number = models.IntegerField(null=True, blank=True)
-    client_name = models.CharField(max_length=255, default=None)
+class MetricsDataModelsLoader(CommonDataModels):
     metric_0 = models.FloatField(null=True, blank=True)
     metric_1 = models.FloatField(null=True, blank=True)
     metric_2 = models.FloatField(null=True, blank=True)
@@ -20,5 +16,10 @@ class DataBaseLoader(models.Model):
     metric_10 = models.FloatField(null=True, blank=True)
     metric_11 = models.FloatField(null=True, blank=True)
 
+    class Meta:
+        db_table = database.data_ingress_table_name
+
+
     def __str__(self):
-        return {self.unique_client_id}
+        return {self.internal_unique_client_id}
+

@@ -19,7 +19,7 @@ class TimestampGenerator(Protocol):
         """format timestamp"""
 
 
-class ContextBuilder:
+class ViewContextBuilder:
     def __init__(self, request: HttpRequest, timestamp_generator: TimestampGenerator):
 
         self.windows_actions_handler = WindowsActionsHandler()
@@ -48,7 +48,8 @@ class ContextBuilder:
         self.postgres_containers_statuses: Dict[str, bool] = postgres_docker_service_controller.get_postgres_containers_statuses_for_service()
         self.elk_containers_statuses: Dict[str, bool] = elk_docker_service_controller.get_elk_containers_statuses_for_service()
 
-        self.button_clicked = self.check_button_click(request)
+        self.button_clicked_clean_all_tables = self.check_button_clean_all_tables_click(request)
+        self.button_clicked_clean_metrics_tables = self.check_button_clean_metrics_tables_click(request)
         self.click_time = self.timestamp_generator.get_formatted_timestamp()
 
 
@@ -71,7 +72,8 @@ class ContextBuilder:
             'postgres_containers_statuses': self.postgres_containers_statuses,
             'elk_containers_statuses': self.elk_containers_statuses,
 
-            'button_clicked': self.button_clicked,
+            'button_clicked_all': self.button_clicked_clean_all_tables,
+            'button_clicked_metrics': self.button_clicked_clean_metrics_tables,
             'click_time': self.click_time,  # to be improved
 
         }
@@ -85,14 +87,22 @@ class ContextBuilder:
     def get_docker_service_message(self, status: bool, config: DockerServiceConfigJsonParser) -> str:
         return config.get_ui_message_down() if not status else config.get_ui_message_up()
 
-
-    def check_button_click(self, request: HttpRequest) -> bool:
+    def check_button_clean_all_tables_click(self, request: HttpRequest) -> bool:
         button_clicked = False
-        if request.method == 'POST' and 'action' in request.POST:
-            action = request.POST['action']
+        if request.method == 'POST' and 'all' in request.POST:
+            action = request.POST['all']
             if action == 'click':
                 button_clicked = True
-                log_debug(self.check_button_click, f'button_clicked: {str(button_clicked)}')
+                log_debug(self.check_button_clean_all_tables_click, f'button_clicked: {str(button_clicked)}')
+        return button_clicked
+
+    def check_button_clean_metrics_tables_click(self, request: HttpRequest) -> bool:
+        button_clicked = False
+        if request.method == 'POST' and 'metrics' in request.POST:
+            action = request.POST['metrics']
+            if action == 'click':
+                button_clicked = True
+                log_debug(self.check_button_clean_all_tables_click, f'button_clicked: {str(button_clicked)}')
         return button_clicked
 
 

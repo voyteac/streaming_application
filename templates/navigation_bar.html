@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Redirection</title>
+    <style>
+        button {
+            color: blue; /* Set button text color to blue */
+            padding: 10px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button onclick="window.location.href='http://127.0.0.1:8000/data_ingress/'">
+        Data Ingress
+    </button>
+
+    <button onclick="window.location.href='http://127.0.0.1:8000/data_display/'">
+        Data Display
+    </button>
+
+    <button onclick="window.location.href='http://127.0.0.1:8000/data_analysis/'">
+        Data Analysis
+    </button>
+</div>
+
+</body>

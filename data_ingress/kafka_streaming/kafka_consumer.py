@@ -1,17 +1,19 @@
 import json
-from typing import Tuple
 from typing import Optional
+from typing import Tuple
 
 from kafka import KafkaConsumer
 from kafka.errors import KafkaError
 from kafka.errors import KafkaTimeoutError
 from kafka.errors import NoBrokersAvailable
 
-from streaming_app.config import kafka_config
-from data_ingress.database_handling.loader import save_kafka_message_to_database
-from data_ingress.common.logging_.to_log_file import log_debug, log_info, log_error, log_error_traceback
+from data_ingress.common.logging_.to_log_file import log_debug, log_info, log_error_traceback
+from data_ingress.common.logging_.to_log_file import log_error
+from data_ingress.kafka_streaming.compose_db_msg_from_kafka_msg import compose_db_msg_from_kafka_msg
 from data_ingress.kafka_streaming.kafka_exceptions import (InitializeKafkaConsumerFailed,
-                                                           LoadingMessageFromKafkaToDbFailed)
+                                                           LoadingMessageFromKafkaToDbFailed, SavingToDatabaseFailed)
+from data_ingress.models import MetricsDataModelsLoader
+from streaming_app.config import kafka_config
 
 
 class CustomKafkaConsumer:
@@ -48,13 +50,13 @@ class CustomKafkaConsumer:
             log_debug(self.initialize_kafka_consumer, 'Initializing Kafka Consumer - Done!')
             return consumer
 
-
     def start_consuming(self, kafka_consumer: KafkaConsumer) -> None:
         log_info(self.initialize_kafka_consumer, 'Staring consuming...!')
         try:
             for kafka_message in kafka_consumer:
                 try:
-                    save_kafka_message_to_database(kafka_message)
+                    database_message: MetricsDataModelsLoader = compose_db_msg_from_kafka_msg(kafka_message)
+                    load_kafka_message_to_database(database_message)
                     log_info(self.initialize_kafka_consumer, 'Staring consuming... - Done!')
                     break
                 except Exception as exception:
@@ -65,3 +67,16 @@ class CustomKafkaConsumer:
         except Exception as exception:
             log_error_traceback(self.start_consuming)
             raise LoadingMessageFromKafkaToDbFailed(str(exception), self.start_consuming) from exception
+
+
+def load_kafka_message_to_database(database_message: MetricsDataModelsLoader) -> None:
+    log_info(load_kafka_message_to_database, 'Loading message to database_handling')
+    try:
+        log_debug(load_kafka_message_to_database, "Saving a message to database")
+        database_message.save()
+    except Exception as e:
+        log_error_traceback(load_kafka_message_to_database)
+        raise SavingToDatabaseFailed(str(e), load_kafka_message_to_database) from e
+    else:
+        log_debug(load_kafka_message_to_database, "Saving a message to database - Done")
+        log_info(load_kafka_message_to_database, 'Loading message to database_handling - Done')

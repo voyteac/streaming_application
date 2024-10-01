@@ -1,0 +1,12 @@
+<div>
+    <form method="post" action="{% url 'clear-table-metrics' %}">
+        {% csrf_token %}
+        <button type="submit" name="metrics" value="click" style="color: red;">Clean METRICS tables</button>
+    </form>
+
+    {% if button_clicked_metrics %}
+        <p>Table cleaned at {{click_time}}</p>
+    {% else %}
+        <p>Not cleaned!</p>
+    {% endif %}
+</div>

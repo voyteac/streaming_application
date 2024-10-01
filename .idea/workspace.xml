@@ -1,59 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c0be190-ac35-4f8a-8163-285842cb10ac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/streaming_app.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_display/templates/data_display_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/data_display/templates/data_display_main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_display/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_display/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/dummy_data/timestamp_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/common/dummy_data/timestamp_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/google_protobuf/gpb_event_composer.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/common/google_protobuf/gpb_event_composer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/google_protobuf/schema/event_notification.proto" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/common/google_protobuf/schema/event_notification.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/google_protobuf/schema/event_notification_pb2.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/common/google_protobuf/schema/event_notification_pb2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/tcp_operations/tcp_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/common/tcp_operations/tcp_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/windows_operations/windows_actions_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/common/windows_operations/windows_actions_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/data_collection/data_collection_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/data_collection/data_collection_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/data_collection/data_collection_controller_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/data_collection/data_collection_controller_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/data_generation/data_generation_controller_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/data_generation/data_generation_controller_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/database_handling/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/database_handling/loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/kafka_container_control/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/kafka_container_control/kafka_consumer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/kafka_container_control/kafka_container_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/kafka_container_control/kafka_exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/kafka_container_control/kafka_producer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/migrations/0002_alter_databaseloader_metric_0_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/migrations/0003_alter_databaseloader_metric_0_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/migrations/0004_rename_internal_unique_event_id_databaseloader_internal_unique_client_id.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/templates/data_collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/templates/data_collection.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/templates/data_ingress_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/templates/data_ingress_main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/templates/kafka_server_control.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/tests/test_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/tests/test_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/tests/tests_common/test_dummy_data/test_timestamp_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/tests/tests_common/test_dummy_data/test_timestamp_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/views_helper/context_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/views_helper/context_builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/overview.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/overview.graphml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/overview.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/overview.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app.log" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/config/kafka_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/config/kafka_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/config/tcp_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/config/tcp_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/db/clean_table.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/db/show_table.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/elk/.env" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/scripts/elk/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/elk/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/scripts/elk/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/elk/logstash.conf" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/scripts/elk/logstash.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/elk_golden/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/elk_golden/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/elk_golden/logstash.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/elk_golden/logstash.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="1c0be190-ac35-4f8a-8163-285842cb10ac" name="Changes" comment="ELK + docker handling improved." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,6 +38,19 @@
       <option name="presentableId" value="Default" />
       <updated>1727552426797</updated>
     </task>
+    <task id="LOCAL-00001" summary="ELK + docker handling improved.">
+      <option name="closed" value="true" />
+      <created>1727552612142</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1727552612142</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ELK + docker handling improved." />
+    <option name="LAST_COMMIT_MESSAGE" value="ELK + docker handling improved." />
   </component>
 </project>
