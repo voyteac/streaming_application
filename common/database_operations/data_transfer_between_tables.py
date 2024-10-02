@@ -1,7 +1,18 @@
-from typing import Type, List, Tuple, Any
+from typing import Any, Type
+
 from django.db import models
 from django.db import transaction
 from django.db.models import Model
+
+from common.database_models.get_list_of_models import get_metric_name_for_model
+from common.database_models.get_target_model_definition_for_metric_table import get_target_model_definition_for_metric_table
+from data_ingress.models import MetricsDataModelsLoader
+
+
+def copy_data_from_main_to_metric_table() -> None:
+    metrics = get_metric_name_for_model()
+    for metric_class, metric_name in metrics:
+        update_analysis_tables(MetricsDataModelsLoader, metric_class, metric_name)
 
 
 def update_analysis_tables(SourceModel: Type[models.Model], TargetModel: Type[models.Model],
@@ -29,7 +40,7 @@ def get_records_from_table(SourceModel: Type[models.Model], TargetModel: Type[mo
 
     for record in source_records:
         if record.internal_unique_client_id not in existing_ids:
-            target_model = get_target_model_definition(TargetModel, record, metric_name)
+            target_model = get_target_model_definition_for_metric_table(TargetModel, record, metric_name)
             target_records.append(target_model)
         else:
             records_to_update.append(record)
@@ -42,29 +53,11 @@ def update_missing_rows(records_to_update: list, TargetModel: Type[models.Model]
 
     for record in records_to_update:
         if record.internal_unique_client_id not in target_ids:
-            target_model = get_target_model_definition(TargetModel, record, metric_name)
+            target_model = get_target_model_definition_for_metric_table(TargetModel, record, metric_name)
             target_records_to_add.append(target_model)
 
     if target_records_to_add:
         TargetModel.objects.bulk_create(target_records_to_add)
 
 
-def get_target_model_definition(TargetModel: Type[models.Model], record: models.Model, metric_name) -> Model:
-    internal_unique_client_id = getattr(record, 'internal_unique_client_id')
-    unique_client_id = getattr(record, 'unique_client_id')
-    date = getattr(record, 'date')
-    time = getattr(record, 'time')
-    message_number = getattr(record, 'message_number')
-    client_name = getattr(record, 'client_name')
-    metric_value = getattr(record, metric_name)
-
-    return TargetModel(
-            internal_unique_client_id=internal_unique_client_id,
-            unique_client_id=unique_client_id,
-            date=date,
-            time=time,
-            message_number=message_number,
-            client_name=client_name,
-            metric_value=metric_value
-        )
 

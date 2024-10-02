@@ -4,7 +4,7 @@ from typing import List
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect
 
-from data_ingress.common.logging_.to_log_file import log_debug, log_info, log_warning, log_error
+from common.logging_.to_log_file import log_debug, log_info, log_warning, log_error
 from data_ingress.common.threads.thread_started import ThreadStarter
 from data_ingress.container_control.common import docker_service_config_json_parser
 from data_ingress.data_generation.data_generation_controller_helper import DataGenerationControllerHelper

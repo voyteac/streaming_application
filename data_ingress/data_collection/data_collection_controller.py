@@ -5,7 +5,7 @@ import threading
 from data_ingress.container_control.kafka_docker_service_controller import KafkaDockerServiceController
 from data_ingress.data_collection.data_collection_controller_helper import DataCollectionControllerHelper
 from data_ingress.common.threads.thread_started import ThreadStarter
-from data_ingress.common.logging_.to_log_file import log_info, log_warning
+from common.logging_.to_log_file import log_info, log_warning
 
 from data_ingress.container_control.common import docker_service_config_json_parser
 from streaming_app.config import containers_config

@@ -1,7 +1,7 @@
 from kafka.consumer.fetcher import ConsumerRecord
 
 from data_ingress.common.dummy_data.timestamp_generator import RealTimestampGenerator
-from data_ingress.common.logging_.to_log_file import log_debug, log_error_traceback
+from common.logging_.to_log_file import log_debug, log_error_traceback
 from data_ingress.kafka_streaming.kafka_exceptions import KafkaMessageToDatabaseMessageConversionFailed
 from data_ingress.models import MetricsDataModelsLoader
 

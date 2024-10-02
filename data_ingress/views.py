@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.views import View
 
 from data_ingress.common.dummy_data.timestamp_generator import RealTimestampGenerator
-from data_ingress.common.logging_.to_log_file import log_info, log_error, log_error_traceback
-from common.database_models.database_table_clearner import DbTableCleaner
+from common.logging_.to_log_file import log_info, log_error, log_error_traceback
+from common.database_operations.database_table_clearner import DbTableCleaner
 from data_ingress.views_helper.view_context_builder import ViewContextBuilder
 from data_ingress.views_helper.view_exceptions import ClearingDatabaseFailed
 
@@ -34,7 +34,7 @@ class DataIngressClearView(View):
         try:
             if context_builder.check_button_clean_all_tables_click(request):
                 db_table_clearner.clear_all_tables_in_db()
-            elif context_builder.check_button_clean_all_tables_click(request):
+            elif context_builder.check_button_clean_metrics_tables_click(request):
                 db_table_clearner.clear_metrics_tables_in_db()
             else:
                 log_error_traceback(DataIngressClearView)

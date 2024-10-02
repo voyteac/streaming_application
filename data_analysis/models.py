@@ -5,7 +5,7 @@ from common.database_models.common_data_model import CommonDataModels
 
 class Metric0(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -15,7 +15,7 @@ class Metric0(CommonDataModels):
 
 class Metric1(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -25,7 +25,7 @@ class Metric1(CommonDataModels):
 
 class Metric2(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -35,7 +35,7 @@ class Metric2(CommonDataModels):
 
 class Metric3(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -45,7 +45,7 @@ class Metric3(CommonDataModels):
 
 class Metric4(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -55,7 +55,7 @@ class Metric4(CommonDataModels):
 
 class Metric5(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -65,7 +65,7 @@ class Metric5(CommonDataModels):
 
 class Metric6(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -75,7 +75,7 @@ class Metric6(CommonDataModels):
 
 class Metric7(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -85,7 +85,7 @@ class Metric7(CommonDataModels):
 
 class Metric8(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -95,7 +95,7 @@ class Metric8(CommonDataModels):
 
 class Metric9(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -105,7 +105,7 @@ class Metric9(CommonDataModels):
 
 class Metric10(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 
@@ -115,7 +115,7 @@ class Metric10(CommonDataModels):
 
 class Metric11(CommonDataModels):
     metric_value = models.FloatField(null=True, blank=True)
-    metric_n_minus_one_prediction = models.FloatField(null=True, blank=True)
+    is_anomaly = models.FloatField(null=True, blank=True)
     margin_lower = models.FloatField(null=True, blank=True)
     margin_upper = models.FloatField(null=True, blank=True)
 

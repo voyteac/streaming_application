@@ -1,22 +1,50 @@
 {% extends 'main.html' %}
+{% load custom_filters %}
 
 {% block content %}
 
 <style>
-    .data-ingress-container{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
+    button {
+        margin: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .generator-content {
+        margin-top: 20px;
     }
 </style>
 
-<h1>Data Analysis</h1>
+<h1>Data Analysis - Metrics 0 only</h1>
 <hr>
 
-<div class="data-analysis-container">
-    <div>
-        <p> to be done/... </p>
-    </div>
+
+<div id="button-container">
+    {% for i in button_range %}
+        <button onclick="showContent({{ i }})">Data Generator {{ i|add:1 }}</button>
+    {% endfor %}
+    <hr>
 </div>
+
+<div id="generator-content-container">
+    {% for i in button_range %}
+        <div id="content-{{ i }}" class="generator-content" style="display:none;">
+            <h3>Data Generator {{ i|add:1 }}</h3>
+            <img src="{{ plots|index:forloop.counter0 }}" alt="Plot for Data Generator {{ i|add:1 }}">
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    function showContent(index) {
+        // Hide all content blocks first
+        document.querySelectorAll('.generator-content').forEach(function(content) {
+            content.style.display = 'none';
+        });
+
+        // Show only the content block for the clicked button
+        document.getElementById('content-' + index).style.display = 'block';
+    }
+</script>
 
 {% endblock content %}

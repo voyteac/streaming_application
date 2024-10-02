@@ -1,6 +1,6 @@
 from typing import Dict, List, Any
 
-from data_ingress.common.logging_.to_log_file import log_debug
+from common.logging_.to_log_file import log_debug
 
 
 class DockerServiceConfigJsonParser:

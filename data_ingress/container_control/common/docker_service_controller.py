@@ -1,7 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect
 from typing import Dict
-from data_ingress.common.logging_.to_log_file import log_info, log_error_traceback
+from common.logging_.to_log_file import log_info, log_error_traceback
 from data_ingress.common.wsl_operations.wsl_commands import CommandExecutor
 from data_ingress.container_control.common.container_control_exceptions import StartingContainerFailed, StoppingContainerFailed
 

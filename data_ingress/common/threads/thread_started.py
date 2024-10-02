@@ -3,7 +3,7 @@ from typing import Tuple
 from typing import Optional
 from typing import Any
 import threading
-from data_ingress.common.logging_.to_log_file import log_debug, log_error_traceback
+from common.logging_.to_log_file import log_debug, log_error_traceback
 from data_ingress.common.threads.threads_helper_exceptions import StartingThreadFailed
 
 class ThreadStarter:

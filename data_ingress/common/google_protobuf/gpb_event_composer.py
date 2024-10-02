@@ -3,7 +3,7 @@ from typing import List
 from data_ingress.common.google_protobuf.schema import event_notification_pb2 as event_scheme
 from data_ingress.common.dummy_data.random_data_generator import RandomDataGenerator
 from data_ingress.common.dummy_data.timestamp_generator import RealTimestampGenerator
-from data_ingress.common.logging_.to_log_file import log_debug, log_error
+from common.logging_.to_log_file import log_debug, log_error
 from data_ingress.common.dummy_data.metric_value_generator import MetricValuesGenerator
 
 class ErrorDuringGpbEventCompose(Exception):
@@ -21,7 +21,7 @@ class GpbEventComposer:
         self.client_name_list: List[str] = self.random_data_generator.get_client_name_id(number_of_generators)
 
 
-    def compose_event(self, generator_id: int, message_number: int) -> bytes:
+    def compose_event(self, generator_id: int, message_number: int, next_kpi_value: float) -> bytes:
         log_debug(self.compose_event, 'composing a serialized google protobuf event notification')
 
 
@@ -37,7 +37,7 @@ class GpbEventComposer:
                 timestamp=timestamp,
                 message_number=message_number,
                 client_name=client_name,
-                metric_0=metric_values[0],
+                metric_0=next_kpi_value,
                 metric_1=metric_values[1],
                 metric_2=metric_values[2],
                 metric_3=metric_values[3],

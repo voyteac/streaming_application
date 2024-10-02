@@ -3,7 +3,7 @@ from django.db import transaction
 
 from common.database_models.common_data_model import CommonDataModels
 from common.database_models.get_list_of_models import get_metric_models_only, get_all_models
-from data_ingress.common.logging_.to_log_file import log_error, log_info, log_error_traceback
+from common.logging_.to_log_file import log_error, log_info, log_error_traceback
 
 
 class DbTableCleaner:
@@ -15,7 +15,7 @@ class DbTableCleaner:
                 with transaction.atomic():  # Ensure data integrity
                     model.objects.all().delete()
                     if model.objects.count() == 0:
-                        log_info(self._clear_tables, f'Table {table_name} has been truncated.')
+                        log_info(self._clear_tables, f'Table {table_name} was truncated.')
                     else:
                         log_error(self._clear_tables, f'Table {table_name} was NOT cleaned.')
             except Exception as e:

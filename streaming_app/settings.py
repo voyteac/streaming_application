@@ -1,4 +1,5 @@
 import subprocess
+import time
 from pathlib import Path
 import os
 from data_ingress.container_control.postgres_docker_service_controller import postgres_docker_service_controller
@@ -181,27 +182,55 @@ ELASTICSEARCH_DSL = {
 }
 
 
-
-def start_wsl_background():
-    try:
-        subprocess.Popen("wsl", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print("WSL started in the background.")
-        # wait_for_postgres()
-    except Exception as e:
-        print(f"Failed to start WSL: {e}")
+def is_wsl_running():
+    result = subprocess.run(['tasklist'], stdout=subprocess.PIPE, text=True)
+    if 'vmmem' in result.stdout or 'wslhost.exe' in result.stdout:
+        return True
+    else:
+        return False
 
 def start_db():
     is_postgres_docker_service_running: bool = postgres_docker_service_controller.get_postgres_docker_service_status()
     if not is_postgres_docker_service_running:
+        print("PostrgeSQL docker container is not running - starting...")
         postgres_docker_service_controller.start_postgres_docker_service()
 
+
+def wait_for_docker(timeout=300, interval=3):
+    start_time = time.time()
+    while True:
+        try:
+            print('Waiting for Docker!')
+            command = ['wsl', '-e', 'bash', '-c', 'docker']
+            process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            stdout, stderr = process.communicate()
+            if process.returncode == 0:
+                print("Docker is UP!")
+                return True
+            else:
+                print(f"Waiting for Docker... Error: {stderr.decode('utf-8')}")
+        except FileNotFoundError:
+            print("Docker command not found. Make sure Docker is installed and added to PATH.")
+            return False
+        if time.time() - start_time > timeout:
+            print("Timeout reached. Docker did not become operational.")
+            return False
+        print("...and waiting...")
+        time.sleep(interval)
+
+
+def start_wsl_background():
+    print("Checking whether WSL is running...")
+    if is_wsl_running:
+        print("Not running - starting...")
+        try:
+            subprocess.Popen("wsl", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            print("WSL started in the background.")
+        except Exception as e:
+            print(f"Failed to start WSL: {e}")
+    else:
+        print("WSL is running...")
+
 start_wsl_background()
+wait_for_docker()
 start_db()
-
-
-
-
-
-
-
-

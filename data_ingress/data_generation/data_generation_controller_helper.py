@@ -3,7 +3,7 @@ from typing import List
 
 from django.http import HttpRequest
 
-from data_ingress.common.logging_.to_log_file import log_debug
+from common.logging_.to_log_file import log_debug
 from streaming_app.config import tcp_config
 
 

@@ -3,7 +3,7 @@ import numpy as np
 from faker import Faker
 from typing import List
 
-from data_ingress.common.logging_.to_log_file import log_debug
+from common.logging_.to_log_file import log_debug
 
 class RandomDataGenerator:
 

@@ -9,7 +9,7 @@ from streaming_app.config import tcp_config
 from data_ingress.kafka_streaming.kafka_producer import CustomKafkaProducer
 from data_ingress.kafka_streaming.kafka_consumer import CustomKafkaConsumer
 from data_ingress.common.tcp_operations.tcp_helper import TcpHelper
-from data_ingress.common.logging_.to_log_file import log_debug, log_info, log_error_traceback
+from common.logging_.to_log_file import log_debug, log_info, log_error_traceback
 from data_ingress.common.threads.thread_started import ThreadStarter
 from data_ingress.data_collection.data_collection_controller_exceptions import (DataFlowFromTcpServerToKafkaFailed,
                                                                                 StreamingToKafkaFailed,

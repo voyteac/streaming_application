@@ -2,7 +2,7 @@ from subprocess import CompletedProcess
 import subprocess
 from typing import Optional
 
-from data_ingress.common.logging_.to_log_file import log_debug
+from common.logging_.to_log_file import log_debug
 from data_ingress.common.wsl_operations.wsl_exceptions import WslCommandExecutionFailed
 
 class CommandExecutor:

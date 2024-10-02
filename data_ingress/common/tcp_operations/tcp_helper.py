@@ -2,7 +2,7 @@ import socket
 import time
 from typing import Optional
 
-from data_ingress.common.logging_.to_log_file import log_debug, log_error
+from common.logging_.to_log_file import log_debug, log_error
 from streaming_app.config import tcp_config
 
 

@@ -8,7 +8,7 @@ import queue
 
 from streaming_app.config import kafka_config
 from data_ingress.common.google_protobuf.gpb_event_decomposer import GpbEventDecomposer
-from data_ingress.common.logging_.to_log_file import log_debug, log_info, log_error, log_error_traceback
+from common.logging_.to_log_file import log_debug, log_info, log_error, log_error_traceback
 from data_ingress.kafka_streaming.kafka_exceptions import (InitializeKafkaProducerFailed,
                                                            LoadingMessageToKafkaFailed)
 

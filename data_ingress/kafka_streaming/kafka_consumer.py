@@ -7,8 +7,7 @@ from kafka.errors import KafkaError
 from kafka.errors import KafkaTimeoutError
 from kafka.errors import NoBrokersAvailable
 
-from data_ingress.common.logging_.to_log_file import log_debug, log_info, log_error_traceback
-from data_ingress.common.logging_.to_log_file import log_error
+from common.logging_.to_log_file import log_debug, log_info, log_error, log_error_traceback
 from data_ingress.kafka_streaming.compose_db_msg_from_kafka_msg import compose_db_msg_from_kafka_msg
 from data_ingress.kafka_streaming.kafka_exceptions import (InitializeKafkaConsumerFailed,
                                                            LoadingMessageFromKafkaToDbFailed, SavingToDatabaseFailed)

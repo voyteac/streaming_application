@@ -1,6 +1,6 @@
-from typing import Protocol, Dict, Optional
+from typing import Protocol, Dict
 
-from data_ingress.common.logging_.to_log_file import log_debug
+from common.logging_.to_log_file import log_debug
 from data_ingress.common.windows_operations.windows_actions_handler import WindowsActionsHandler
 
 

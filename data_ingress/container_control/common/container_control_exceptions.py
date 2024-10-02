@@ -1,6 +1,6 @@
 from typing import Callable
 
-from data_ingress.common.logging_.to_log_file import log_error
+from common.logging_.to_log_file import log_error
 
 
 class StartingContainerFailed(Exception):

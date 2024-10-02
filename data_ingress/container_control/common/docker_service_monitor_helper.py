@@ -1,8 +1,7 @@
-from typing import Callable, List, Union
 import docker
 from docker import DockerClient
 from docker.errors import DockerException
-from data_ingress.common.logging_.to_log_file import log_error, log_info, log_warning
+from common.logging_.to_log_file import log_error
 from streaming_app.config import containers_config
 
 class DockerServiceMonitorHelper:
