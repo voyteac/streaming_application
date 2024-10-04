@@ -60,4 +60,6 @@ def update_missing_rows(records_to_update: list, TargetModel: Type[models.Model]
         TargetModel.objects.bulk_create(target_records_to_add)
 
 
+# if __name__ == '__main__':
+#     main()
 

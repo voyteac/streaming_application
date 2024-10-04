@@ -10,11 +10,11 @@ class ElkDockerServiceController:
     def __init__(self):
         self.elk_service_data: Dict = containers_config.elk_service_data
 
-        self.elk_docker_compose_up_wsl_cmd: str = containers_config.elk_docker_compose_up_wsl_cmd
-        self.elk_docker_compose_down_wsl_cmd: str = containers_config.elk_docker_compose_down_wsl_cmd
+        self.elk_docker_compose_up_cmd: str = containers_config.elk_docker_compose_up_cmd
+        self.elk_docker_compose_down_cmd: str = containers_config.elk_docker_compose_down_cmd
 
-        self.container_controller = DockerServiceController(self.elk_service_data, self.elk_docker_compose_up_wsl_cmd,
-                                                            self.elk_docker_compose_down_wsl_cmd)
+        self.container_controller = DockerServiceController(self.elk_service_data, self.elk_docker_compose_up_cmd,
+                                                            self.elk_docker_compose_down_cmd)
 
         self.docker_service_monitor = DockerServiceMonitor(self.elk_service_data)
 

@@ -17,7 +17,6 @@ def analysis(request: HttpRequest) -> HttpResponse:
     plots = analyzer_for_metric0.analyze_metric_0()
 
 
-
     context = {
         'number_of_buttons': analyzer_for_metric0.number_of_generators,
         'button_range': analyzer_for_metric0.button_range,

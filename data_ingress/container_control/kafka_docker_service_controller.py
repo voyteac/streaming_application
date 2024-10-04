@@ -11,11 +11,11 @@ class KafkaDockerServiceController:
     def __init__(self):
         self.kafka_service_data: Dict = containers_config.kafka_service_data
 
-        self.kafka_docker_compose_up_wsl_cmd: str = containers_config.kafka_docker_compose_up_wsl_cmd
-        self.kafka_docker_compose_down_wsl_cmd: str = containers_config.kafka_docker_compose_down_wsl_cmd
+        self.kafka_docker_compose_up_cmd: str = containers_config.kafka_docker_compose_up_cmd
+        self.kafka_docker_compose_down_cmd: str = containers_config.kafka_docker_compose_down_cmd
 
-        self.container_controller = DockerServiceController(self.kafka_service_data, self.kafka_docker_compose_up_wsl_cmd,
-                                                            self.kafka_docker_compose_down_wsl_cmd)
+        self.container_controller = DockerServiceController(self.kafka_service_data, self.kafka_docker_compose_up_cmd,
+                                                            self.kafka_docker_compose_down_cmd)
 
         self.docker_service_monitor = DockerServiceMonitor(self.kafka_service_data)
 

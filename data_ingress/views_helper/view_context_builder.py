@@ -1,7 +1,6 @@
 from typing import Protocol, Dict
 
 from common.logging_.to_log_file import log_debug
-from data_ingress.common.windows_operations.windows_actions_handler import WindowsActionsHandler
 
 
 from django.http import HttpRequest
@@ -22,7 +21,6 @@ class TimestampGenerator(Protocol):
 class ViewContextBuilder:
     def __init__(self, request: HttpRequest, timestamp_generator: TimestampGenerator):
 
-        self.windows_actions_handler = WindowsActionsHandler()
         self.timestamp_generator = timestamp_generator
         self.tcp_helper = TcpHelper()
 
@@ -38,7 +36,7 @@ class ViewContextBuilder:
         self.elk_config = docker_service_config_json_parser.DockerServiceConfigJsonParser(elk_docker_service_data)
         self.postgres_config = docker_service_config_json_parser.DockerServiceConfigJsonParser(postgres_docker_service_data)
 
-        self.data_generation_status: bool = self.windows_actions_handler.check_TCP_port_data_generation_with_retries()
+        self.data_generation_status: bool = self.tcp_helper.check_TCP_port_data_generation_with_retries()
         self.data_collection_status: bool = self.tcp_helper.check_tcp_socket()
         self.kafka_docker_service_status: bool = kafka_docker_service_controller.get_kafka_docker_service_status()
         self.postgres_docker_service_status: bool = postgres_docker_service_controller.get_postgres_docker_service_status()

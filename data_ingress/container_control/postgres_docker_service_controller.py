@@ -9,12 +9,12 @@ class PostgresDockerServiceController:
     def __init__(self):
         self.postgres_service_data: Dict = containers_config.postgres_service_data
 
-        self.postgres_docker_compose_up_wsl_cmd: str = containers_config.postgres_docker_compose_up_wsl_cmd
-        self.postgres_docker_compose_down_wsl_cmd: str = containers_config.postgres_docker_compose_down_wsl_cmd
+        self.postgres_docker_compose_up_cmd: str = containers_config.postgres_docker_compose_up_cmd
+        self.postgres_docker_compose_down_cmd: str = containers_config.postgres_docker_compose_down_cmd
 
         self.container_controller = DockerServiceController(self.postgres_service_data,
-                                                            self.postgres_docker_compose_up_wsl_cmd,
-                                                            self.postgres_docker_compose_down_wsl_cmd)
+                                                            self.postgres_docker_compose_up_cmd,
+                                                            self.postgres_docker_compose_down_cmd)
 
         self.docker_service_monitor = DockerServiceMonitor(self.postgres_service_data)
 

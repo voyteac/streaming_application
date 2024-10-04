@@ -2,9 +2,9 @@ import socket
 import time
 from typing import Optional
 
-from common.logging_.to_log_file import log_debug, log_error
+from common.logging_.to_log_file import log_debug, log_info, log_error
 from streaming_app.config import tcp_config
-
+import subprocess
 
 class TcpHelper:
     def __init__(self):
@@ -15,6 +15,7 @@ class TcpHelper:
         self.client_port: int = tcp_config.port
         self.connection_attempt_retry_count: int = tcp_config.connection_attempt_retry_count
         self.max_connection_retries: int = tcp_config.max_connection_retries
+        self.data_generation_pause_period: float = tcp_config.data_generation_pause_period
 
     def attempt_tcp_socket_connection(self) -> Optional[socket.socket]:
         log_debug(self.attempt_tcp_socket_connection, 'Connecting to server...')
@@ -85,3 +86,34 @@ class TcpHelper:
             sock.settimeout(timeout)
             result: int = sock.connect_ex((host_, port_))
             return result == 0
+
+    def check_TCP_port_data_generation_with_retries(self, max_attempts: int = 5, wait_time: float = 0.5) -> bool:
+        for attempt in range(max_attempts):
+            try:
+                timeout = self.data_generation_pause_period * 2
+                result = subprocess.run(['ss', '-an'], capture_output=True, text=True, timeout=timeout)
+                if self.check_port_status(result.stdout, self.server_port):
+                    log_debug(self.check_TCP_port_data_generation_with_retries,
+                              f'Data is generated on port: {self.server_port}!')
+                    return True
+                else:
+                    log_debug(self.check_TCP_port_data_generation_with_retries,
+                              f"Attempt {attempt + 1}/{max_attempts}: No data generation on port {self.server_port}.")
+            except subprocess.TimeoutExpired:
+                log_error(self.check_TCP_port_data_generation_with_retries, "TimeoutExpired.")
+                return False
+            except Exception as e:
+                log_error(self.check_TCP_port_data_generation_with_retries, f"An error occurred: {e}")
+                return False
+            time.sleep(wait_time)
+        log_info(self.check_TCP_port_data_generation_with_retries,
+                 f"No data generation on port: {self.server_port} after {max_attempts} attempts.")
+        return False
+
+    def check_port_status(self, result_stdout: str, port: int) -> bool:
+        states_to_check = ['ESTAB']
+        output_lines = result_stdout.splitlines()
+        for line in output_lines:
+            if str(port) in line and any(state in line for state in states_to_check):
+                return True
+        return False
