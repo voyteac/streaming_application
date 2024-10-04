@@ -14041,3 +14041,6 @@
 /env_3_11_9/LICENSE.txt
 /env_3_11_9/pyvenv.cfg
 /.vscode/settings.json
+/.venv/
+/.vscode/
+/env_3_11_9/
