@@ -4,28 +4,29 @@ import os
 
 docker_host: str = 'localhost'
 docker_port: str = '2375'
-docker_compose_dir = '/mnt/c/Projects/streaming_app_fixed/streaming_app/scripts'
+docker_compose_dir = 'streaming_app/scripts'
 kafka_docker_compose_dir: str = 'kafka-docker'
 postgres_docker_compose_dir: str = 'postgres'
 elk_docker_compose_dir: str = 'elk'
-
+up_cmd = 'docker-compose up -d'
+down_cmd = 'docker-compose down'
 
 ### docker-compose commands kafka ###
 kafka_docker_compose_path: str = os.path.join(docker_compose_dir, kafka_docker_compose_dir)
-kafka_docker_compose_up_cmd: str = f'cd {kafka_docker_compose_path} && docker compose up -d'
-kafka_docker_compose_down_cmd: str = f'cd {kafka_docker_compose_path} && docker compose down'
+kafka_docker_compose_up_cmd: str = f'cd {kafka_docker_compose_path} && {up_cmd}'
+kafka_docker_compose_down_cmd: str = f'cd {kafka_docker_compose_path} && {down_cmd}'
 
 
 ### docker-compose commands postgres ###
 postgres_docker_compose_path: str = os.path.join(docker_compose_dir, postgres_docker_compose_dir)
-postgres_docker_compose_up_cmd: str = f'cd {postgres_docker_compose_path} && docker compose up -d'
-postgres_docker_compose_down_cmd: str = f'cd {postgres_docker_compose_path} && docker compose down'
+postgres_docker_compose_up_cmd: str = f'cd {postgres_docker_compose_path} && {up_cmd}'
+postgres_docker_compose_down_cmd: str = f'cd {postgres_docker_compose_path} && {down_cmd}'
 
 
 ### docker-compose commands elk ###
 elk_docker_compose_path: str = os.path.join(docker_compose_dir, elk_docker_compose_dir)
-elk_docker_compose_up_cmd: str = f'cd {elk_docker_compose_path} && docker compose up -d'
-elk_docker_compose_down_cmd: str = f'cd {elk_docker_compose_path} && docker compose down'
+elk_docker_compose_up_cmd: str = f'cd {elk_docker_compose_path} && {up_cmd}'
+elk_docker_compose_down_cmd: str = f'cd {elk_docker_compose_path} && {down_cmd}'
 
 
 

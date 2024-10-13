@@ -1,7 +1,6 @@
 networks:
   elastic_postgresql_network:
-    external:
-      name: elastic_postgresql_network
+    external: true
 
 services:
   db:
@@ -21,4 +20,3 @@ services:
 
 volumes:
   pg_data:
-

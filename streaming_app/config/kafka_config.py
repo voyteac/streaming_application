@@ -1,6 +1,6 @@
 from typing import Tuple
 
-bootstrap_servers: str = 'localhost:9092'
+bootstrap_servers: str = 'kafka:9092'
 producer_api_version: Tuple[int, int, int] = (0, 10, 1)
 consumer_api_version: Tuple[int, int, int] = (0, 10, 1)
 

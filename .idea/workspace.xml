@@ -4,42 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="882a6d08-7e99-4948-9018-9667f65f38c5" name="Changes" comment="API update. Move app to linux. Dockerfile.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/streaming_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/streaming_app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/database_operations/data_transfer_between_tables.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/database_operations/data_transfer_between_tables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_analysis/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_analysis/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_analysis/migrations/0002_alter_metric0_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_analysis/migrations/0003_rename_metric_n_minus_one_prediction_metric0_is_anomaly_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_analysis/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_analysis/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/api/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/api/serializers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/api/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/api/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/tcp_operations/tcp_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/common/tcp_operations/tcp_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/windows_operations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/windows_operations/windows_actions_handler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/wsl_operations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/wsl_operations/wsl_commands.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/common/wsl_operations/wsl_exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/container_control/common/docker_service_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/container_control/common/docker_service_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/container_control/common/docker_service_monitor_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/container_control/common/docker_service_monitor_helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/container_control/elk_docker_service_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/container_control/elk_docker_service_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/container_control/kafka_docker_service_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/container_control/kafka_docker_service_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/container_control/postgres_docker_service_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/container_control/postgres_docker_service_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_ingress/views_helper/view_context_builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_ingress/views_helper/view_context_builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/config/containers_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/config/containers_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/config/tcp_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/config/tcp_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/elk/logstash.conf" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/scripts/elk/logstash.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/scripts/postgres/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/scripts/postgres/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
-    </list>
+    <list default="true" id="c227ebbd-2d5e-4033-82a7-97916ea9b6a9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,11 +16,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
-  <component name="ProjectId" id="2mzR8S9UHypxIYCktBF4r1tdXS2" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2myxZqq3QajlqPF2e7jgjdYCjyS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -64,22 +29,40 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Projects/streaming_app_docker/streaming_app/scripts/elk/compose_files",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\streaming_app_docker\streaming_app\scripts\elk\compose_files" />
+      <recent name="C:\Projects\streaming_app_docker\streaming_app\scripts\elk\conf" />
+      <recent name="C:\Projects\streaming_app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\streaming_app_docker\streaming_app\scripts\elk" />
+      <recent name="C:\Projects\streaming_app_docker\streaming_app\scripts\elk\config" />
+      <recent name="C:\Projects\streaming_app_docker\streaming_app\scripts\elk\conf" />
+      <recent name="C:\Projects\streaming_app" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-884f5ed5d46b-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.22855.92" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="882a6d08-7e99-4948-9018-9667f65f38c5" name="Changes" comment="" />
-      <created>1728077260264</created>
+      <changelist id="c227ebbd-2d5e-4033-82a7-97916ea9b6a9" name="Changes" comment="" />
+      <created>1728062675960</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1728077260264</updated>
+      <updated>1728062675960</updated>
     </task>
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="API update. Move app to linux. Dockerfile." />
-    <option name="LAST_COMMIT_MESSAGE" value="API update. Move app to linux. Dockerfile." />
   </component>
 </project>

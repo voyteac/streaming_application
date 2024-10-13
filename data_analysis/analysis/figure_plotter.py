@@ -19,7 +19,7 @@ def plot_figure_to_buffer(x_values_original: List[float],
                           detected_anomalies: List[int]) -> Tuple[str, List[float], List[float]]:
     # KPI VALUES LINE
     plt.figure(figsize=(12, 6))
-    plt.plot(x_values_original, y_values_original, color='blue', label='KPI Values', linewidth=1)
+    # plt.plot(x_values_original, y_values_original, color='blue', label='KPI Values', linewidth=1)
 
     # KPI VALUES
     for i in range(len(online_predictions)):
